@@ -1,0 +1,64 @@
+.designHeader {
+    height: 15em;
+
+    background-color: rgba(0, 0, 0, 0.527);
+
+    color: white;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.headerSpace {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 15em;
+}
+
+.searchDesign {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.linksDesign {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+   
+}
+
+.link {
+    margin-right: 3em;
+    margin-bottom: 1em;
+    
+}
+
+.link:hover {
+    font-weight: bold;
+    cursor:pointer;
+    
+}
+
+.welcomelink {
+    margin-right: 3em;
+    margin-bottom: 1em;
+    
+}
+
+.welcomelink:hover {
+    font-weight: bold;
+    cursor:pointer;
+}
+
+.relleno {
+    height: 1em;
+    
+}

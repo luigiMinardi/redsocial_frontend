@@ -1,0 +1,29 @@
+.designHome {
+
+    
+    background-color: rgba(0, 0, 0, 0.438);
+    height: 26.1em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.introText{
+    display: column;
+    background-color: rgba(0, 0, 0, 0.438);
+    justify-content: center;
+    align-items: flex-start;
+}
+
+
+
+
+
+
+
+
+
+
+
