@@ -4,6 +4,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 
 import './Home.css';
+import Margin from '../../Components/Margin/Margin';
 
 
 
@@ -13,6 +14,8 @@ const Home = (props) => {
 
         return (
             <div className='designHome'> 
+                <Margin/> 
+                    <div>content</div>
             </div>
         )
         
@@ -20,5 +23,5 @@ const Home = (props) => {
 
 
 
-
-export default connect()(Home);
+export default Home;
+// export default connect()(Home);

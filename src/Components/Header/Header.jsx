@@ -8,17 +8,17 @@ import {Input,Button} from 'antd';
 import './Header.css';
 
 const Header = (props) => {
-
+console.log ("estamos como admin")
         return (
             <div className='designHeader'>
-                    {console.log ("estamos como admin")}
+                   
             </div>
         )
 
     } 
 
 
-
-export default connect (Header);
+export default Header;
+// export default connect (Header);
 
 //..

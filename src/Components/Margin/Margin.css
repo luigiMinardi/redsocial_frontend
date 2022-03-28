@@ -1,0 +1,9 @@
+.designMargin {
+    height: 100%;
+    width: 12em;
+    background-color: #870B29;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

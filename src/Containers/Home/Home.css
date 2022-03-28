@@ -1,12 +1,7 @@
 .designHome {
-
-    
-    background-color: rgba(0, 0, 0, 0.438);
-    height: 26.1em;
-
+    background-color: #2B2B31;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
