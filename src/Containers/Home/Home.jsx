@@ -19,7 +19,8 @@ const Home = (props) => {
                         <img className='foroImg'/>   
                         <div className="foroPost">
                             <div className="postCabeza">
-                                <div className="nombreUsuario"></div>
+                                <div className="nombreUsuario"><p>Nombre de Usuario</p></div>
+                                <div className="fechaPost"><p>Fecha de Post</p></div>
                             </div>
                         </div>
 

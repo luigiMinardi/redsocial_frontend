@@ -1,16 +1,62 @@
 .designHome {
+    display: flex;
     background-color: #2B2B31;
     height: 100vh;
-    display: flex;
     align-items: center;
 }
 
-.introText{
-    display: column;
-    background-color: rgba(0, 0, 0, 0.438);
-    justify-content: center;
+.cuerpo {
+    background-color: #2B2B31;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
+
 }
+
+.foroImg{
+    height: 6em;
+    width: 6em;
+    align-items: center;
+    justify-content: center;
+    padding-right: 1em;
+    margin-bottom: 29em;
+}
+
+.foroPost {
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: rgba(196, 196, 196, 1);
+    height: 35em;
+    width: 45em;
+    align-items: center;
+    justify-content: center;
+}
+
+.postCabeza {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #611B5E;
+    height: 3em;
+    width: 100%;
+}
+
+.nombreUsuario {
+    color: black;
+    width: 50%;
+}
+
+
+.fechaPost {
+    color: black;
+    width: 50%;
+}
+
+
+
 
 
 
