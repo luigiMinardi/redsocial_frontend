@@ -10,7 +10,7 @@ import './Header.css';
 const Header = (props) => {
 console.log ("estamos como admin")
         return (
-            <div className='designHeader'>
+            <div className='designHeader'> Logo
                    
             </div>
         )

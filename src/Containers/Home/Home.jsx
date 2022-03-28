@@ -15,7 +15,15 @@ const Home = (props) => {
         return (
             <div className='designHome'> 
                 <Margin/> 
-                    <div>content</div>
+                    <div className='cuerpo'>
+                        <img className='foroImg'/>   
+                        <div className="foroPost">
+                            <div className="postCabeza">
+                                <div className="nombreUsuario"></div>
+                            </div>
+                        </div>
+
+                    </div>
             </div>
         )
         
