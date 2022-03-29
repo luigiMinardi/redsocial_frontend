@@ -16,20 +16,39 @@
     height: 100%;
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 
 }
 
-.foroPost {
-    flex-direction: row;
-    flex-wrap: wrap;
+.registrarAqui{
+    justify-content: center;
+    align-items: center;
+    color: black;
+    width: 50%;
+}
+
+.input{
+        all:unset;
+        text-align: left;
+        border: 2px solid #611B5E;
+        border-bottom: 2px 2px;
+        padding: 0.50em;
+        width: 80%;
+        margin: 0.5em;
+        margin-top: 1.25em;
+        background-color: #555a402d;
+}
+
+.foroPost2 {
+    display: flex;
+    flex-direction: column;
     background-color: rgba(196, 196, 196, 1);
     height: 35em;
     width: 45em;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .postCabeza {
@@ -41,16 +60,26 @@
     width: 100%;
 }
 
-.nombreUsuario {
+.botonRegistro{
+    height: 4em;
+    width: 10em;
+    background-color: #555a402d;
     color: black;
-    width: 50%;
+    border: 2px solid #611B5E;
+    border-radius: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botonRegistro:hover {
+    background-color: rgba(196, 196, 196, 1);
+    font-weight: bolder;
+    cursor: pointer;
 }
 
 
-.fechaPost {
-    color: black;
-    width: 50%;
-}
+
 
 
 

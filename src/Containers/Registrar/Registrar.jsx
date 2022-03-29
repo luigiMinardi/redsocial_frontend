@@ -18,10 +18,20 @@ const Registrar = (props) => {
             <div className="contenido">
                 <Margin />
                 <div className='cuerpoRegistrar'>
-                    <div className="foroPost">
+
+
+                    <div className="foroPost2">
                         <div className="postCabeza">
-                            <div className="nombreUsuario"><p>Nombre de Usuario</p></div>
-                            <div className="fechaPost"><p>Fecha de Post</p></div>
+                            <div className="registrarAqui"><p>Registrar Aqui</p></div>
+                        </div>
+                        <input className='input' type="text" name="nombre" id="nombre" title="nombre" placeholder="Nombre:" autoComplete="off" />
+                        <input className='input' type="text" name="apellidos" id="apellidos" title="apellidos" placeholder="Apellidos:" autoComplete="off" />
+                        <input className='input' type="text" name="edad" id="edad" title="edad" placeholder="Edad" autoComplete="off" />
+                        <input className='input' type="text" name="telefono" id="telefono" title="telefono" placeholder="Telefono" autoComplete="off" />
+                        <input className='input' type="text" name="correo" id="correo" title="correo" placeholder="Correo Electronico" autoComplete="off" />
+                        <input className='input' type="text" name="clave" id="clave" title="clave" placeholder="Contraseña" autoComplete="off" />
+                        <div className="botonRegistro">
+                            Registrar!
                         </div>
                     </div>
                 </div>
