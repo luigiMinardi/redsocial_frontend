@@ -17,7 +17,13 @@ const Registrar = (props) => {
             <Header />
             <div className="contenido">
                 <Margin />
-                <div className='cuerpo'>
+                <div className='cuerpoRegistrar'>
+                    <div className="foroPost">
+                        <div className="postCabeza">
+                            <div className="nombreUsuario"><p>Nombre de Usuario</p></div>
+                            <div className="fechaPost"><p>Fecha de Post</p></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
