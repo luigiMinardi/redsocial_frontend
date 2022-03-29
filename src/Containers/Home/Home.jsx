@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import './Home.css';
 import Margin from '../../Components/Margin/Margin';
+import Header from '../../Components/Header/Header';
 
 
 
@@ -14,17 +15,20 @@ const Home = (props) => {
 
         return (
             <div className='designHome'> 
-                <Margin/> 
-                    <div className='cuerpo'>
-                        <img className='foroImg'/>   
-                        <div className="foroPost">
-                            <div className="postCabeza">
-                                <div className="nombreUsuario"><p>Nombre de Usuario</p></div>
-                                <div className="fechaPost"><p>Fecha de Post</p></div>
+
+                <Header/>
+                <div className="contenido">
+                    <Margin/>
+                        <div className='cuerpo'>
+                            <img className='foroImg'/>
+                            <div className="foroPost">
+                                <div className="postCabeza">
+                                    <div className="nombreUsuario"><p>Nombre de Usuario</p></div>
+                                    <div className="fechaPost"><p>Fecha de Post</p></div>
+                                </div>
                             </div>
                         </div>
-
-                    </div>
+                </div>
             </div>
         )
         

@@ -1,7 +1,8 @@
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import Header from './Components/Header/Header';
+
 import Home from './Containers/Home/Home';
+import Registrar from './Containers/Registrar/Registrar';
 
 
 function App() {
@@ -9,9 +10,10 @@ function App() {
     <div className="App">
 
       <BrowserRouter>
-        <Header/>
+        
         <Routes>
           <Route path="/" element={<Home/>}/>
+          <Route path="/registrar" element={<Registrar/>}/>
         </Routes>
       </BrowserRouter>
     </div>
