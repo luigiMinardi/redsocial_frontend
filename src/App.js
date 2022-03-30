@@ -3,6 +3,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Home from './Containers/Home/Home';
 import Registrar from './Containers/Registrar/Registrar';
 import Login from './Containers/Login/Login';
+import Nosotros from './Containers/Nosotros/Nosotros';
 
 
 function App() {

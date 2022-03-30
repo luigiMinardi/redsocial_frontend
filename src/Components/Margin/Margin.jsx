@@ -14,7 +14,7 @@ const Margin = (props) => {
             <a onClick={() => navigate('/')}>Home</a>
             <a onClick={() => navigate('/registrar')}>Registrar</a>
             <a onClick={() => navigate('/login')}>Usuario/Iniciar Session</a>
-            <a onClick={() => navigate('/sobre-nosotros')}>Sobre Nosotros</a>
+            <a onClick={() => navigate('/nosotros')}>Sobre Nosotros</a>
             <a>Cerrar Session</a>
         </div>
     )
