@@ -22,7 +22,7 @@ const Registrar = (props) => {
 
                     <div className="foroPost2">
                         <div className="postCabeza">
-                            <div className="registrarAqui"><p>Registrar Aqui</p></div>
+                        <div className="registrarAqui"><p>Registrar Aqui</p></div>
                         </div>
                         <input className='input' type="text" name="nombre" id="nombre" title="nombre" placeholder="Nombre:" autoComplete="off" />
                         <input className='input' type="text" name="apellidos" id="apellidos" title="apellidos" placeholder="Apellidos:" autoComplete="off" />
