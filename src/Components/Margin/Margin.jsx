@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import 'antd/dist/antd.css';
-import {Input,Button} from 'antd';
+// import 'antd/dist/antd.css';
+// import {Input,Button} from 'antd';
 import './Margin.css';
 
 const Margin = (props) => {
@@ -13,7 +13,7 @@ const Margin = (props) => {
         <div className='designMargin'>
             <a onClick={()=> navigate('/')}>Home</a>    
             <a onClick={()=> navigate ('/registrar')}>Registrar</a>    
-            <a>Usuario/Iniciar Session</a>    
+            <a onClick={()=> navigate ('/login')}>Usuario/Iniciar Session</a>    
             <a onClick={()=> navigate ('/sobre-nosotros')}>Sobre Nosotros</a>    
             <a>Cerrar Session</a>    
         </div>
