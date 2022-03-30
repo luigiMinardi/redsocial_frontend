@@ -75,11 +75,9 @@ const Registrar = () => {
             <div className="contenido">
                 <Margin />
                 <div className='cuerpoRegistrar'>
-
-
                     <div className="foroPost2">
                         <div className="postCabeza">
-                        <div className="registrarAqui"><p>Registrar Aqui</p></div>
+                            <p className='letras'>Registro</p>
                         </div>
                         <input className='input' type="text" name="nombre" id="nombre" title="nombre" placeholder="Nombre:" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
                         <input className='input' type="text" name="apellidos" id="apellidos" title="apellidos" placeholder="Apellidos:" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
