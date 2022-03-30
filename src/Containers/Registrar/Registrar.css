@@ -22,11 +22,11 @@
 
 }
 
-.registrarAqui{
-    justify-content: center;
-    align-items: center;
+.letras{
     color: black;
-    width: 50%;
+    font-size: 2em;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 1em;
 }
 
 .input{
@@ -42,6 +42,7 @@
 }
 
 .foroPost2 {
+    border-radius: 2em 2em 2em 2em;
     display: flex;
     flex-direction: column;
     background-color: rgba(196, 196, 196, 1);
@@ -58,10 +59,11 @@
     background-color: #611B5E;
     height: 3em;
     width: 100%;
+    border-radius: 2em 2em 0 0;
 }
 
 .botonRegistro{
-    height: 4em;
+    height: 3em;
     width: 10em;
     background-color: #555a402d;
     color: black;
@@ -70,6 +72,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 1em;
 }
 
 .botonRegistro:hover {
