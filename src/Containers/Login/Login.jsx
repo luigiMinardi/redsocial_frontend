@@ -13,24 +13,19 @@ import Header from '../../Components/Header/Header';
 
 const Login = () => {
 
-        return (
-            <div className='paginaLogin'> 
-                <Header/>
-                <div className="contenidoLogin">
-                    <Margin/>
-                        <div className='cuerpo'>
-                            <img className='foroImg'/>
-                            <div className="foroPost">
-                                <div className="postCabeza">
-                                    <div className="nombreUsuario"><p>Nombre de Usuario</p></div>
-                                    <div className="fechaPost"><p>Fecha de Post</p></div>
-                                </div>
-                            </div>
-                        </div>
+    return (
+        <div className='paginaLogin'>
+            <Header />
+            <div className="contenidoLogin">
+                <Margin />
+                <div className='cuerpo'>
+                    <div className='login'></div>
+
                 </div>
             </div>
-        )
-        
+        </div>
+    )
+
 }
 
 
