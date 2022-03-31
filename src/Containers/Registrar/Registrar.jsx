@@ -76,7 +76,7 @@ const Registrar = () => {
             <div className="contenido">
                 <Margin />
                 <div className='cuerpoRegistrar'>
-                    <div className="foroPost2">
+                    <div className="foroPostRegistrar">
                         <div className="postCabeza">
                             <p className='letras'>Registro</p>
                         </div>

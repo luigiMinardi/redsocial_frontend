@@ -10,6 +10,17 @@
     height: 100%;
 }
 
+.foroPostPerfil {
+    border-radius: 2em 2em 2em 2em;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(196, 196, 196, 1);
+    height: 40em;
+    width: 45em;
+    align-items: center;
+    justify-content: flex-start;
+}
+
 .postCabezaPerfil {
     display: flex;
     align-items: center;

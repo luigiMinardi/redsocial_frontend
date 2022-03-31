@@ -70,7 +70,7 @@ const Perfil = (props) => {
             <div className="contenidoPerfil">
                 <Margin />
                 <div className='cuerpoPerfil'>
-                    <div className="foroPost2">
+                    <div className="foroPostPerfil">
                         <div className="postCabezaPerfil">
                             <p className='letras'>Actualiza tus datos</p>
                         </div>

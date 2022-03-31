@@ -81,7 +81,7 @@ const Login = (props) => {
             <Header />
             <div className="contenidoLogin">
                 <Margin />
-                <div className='cuerpo'>
+                <div className='cuerpoLogin'>
                     <div className='login'>
                     <div className="postCabeza2">
                     <p className='letras'>Introduce tus datos.</p>
