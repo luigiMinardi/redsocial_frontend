@@ -1,16 +1,16 @@
-.designHome {
+.designNosotros {
     display: flex;
     flex-direction: column;
     background-color: #2B2B31;
     height: 100vh;
 }
 
-.contenido{
+.contenidoNosotros {
     display: flex;
     height: 100%;
 }
 
-.cuerpo {
+.cuerpoNosotros {
     background-color: #2B2B31;
     height: 100%;
     width: 100%;
@@ -21,26 +21,21 @@
 
 }
 
-.foroImg{
-    height: 6em;
-    width: 6em;
-    align-items: center;
-    justify-content: center;
-    padding-right: 1em;
-    margin-bottom: 29em;
-}
 
-.foroPost {
+.foroNosotros {
     flex-direction: row;
     flex-wrap: wrap;
     background-color: rgba(196, 196, 196, 1);
+    color: black;
+    font-weight: bold;
+    font-size:x-large;
     height: 35em;
     width: 45em;
     align-items: center;
     justify-content: center;
 }
 
-.postCabeza {
+.nosotrosCabeza {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -53,6 +48,3 @@
     color: black;
     width: 50%;
 }
-
-
-
