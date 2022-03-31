@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { connect } from 'react-redux';
+// import React, {useState, useEffect} from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import axios from 'axios';
+// import { connect } from 'react-redux';
 
 import './Home.css';
 import Margin from '../../Components/Margin/Margin';
@@ -11,18 +11,16 @@ import Header from '../../Components/Header/Header';
 
 
 
-const Home = (props) => {
-
+const Home = () => {
         return (
-            <div className='designHome'> 
-
+            <div className='paginaHome'> 
                 <Header/>
-                <div className="contenido">
+                <div className="contenidoHome">
                     <Margin/>
-                        <div className='cuerpo'>
+                        <div className='cuerpoHome'>
                             <img className='foroImg'/>
-                            <div className="foroPost">
-                                <div className="postCabeza">
+                            <div className="foroPostHome">
+                                <div className="postCabezaHome">
                                     <div className="nombreUsuario"><p>Nombre de Usuario</p></div>
                                     <div className="fechaPost"><p>Fecha de Post</p></div>
                                 </div>
