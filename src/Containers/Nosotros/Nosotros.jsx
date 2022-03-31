@@ -14,18 +14,17 @@ import Header from '../../Components/Header/Header';
 const Nosotros = (props) => {
 
     return (
-        <div className='designHome'>
+        <div className='designNosotros'>
 
             <Header />
-            <div className="contenido">
+            <div className="contenidoNosotros">
                 <Margin />
-                <div className='cuerpo'>
-                    <div className="foroPost">
-                        <div className="postCabeza">
+                <div className='cuerpoNosotros'>
+                    <div className="foroNosotros">
+                        <div className="nosotrosCabeza">
                             <div className="sobreNosotros"><p>Sobre Nosotros</p></div>
                         </div>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed metus id metus malesuada dapibus. Phasellus ultricies efficitur quam, ac commodo nulla aliquet vehicula. Vivamus consectetur imperdiet sapien ac porttitor. Sed sit amet augue dictum, tincidunt velit convallis, luctus dolor. Nullam tincidunt augue sit amet ex convallis, eu bibendum turpis congue. Fusce fringilla, erat vitae tempus ultricies, ex neque laoreet mauris, a hendrerit augue justo vitae est. Integer suscipit maximus ante sit amet suscipit. Aenean fermentum rutrum nulla vel suscipit. Donec consequat quis diam nec laoreet. Phasellus non lobortis nunc.
-                    </div>
+                        ¡Bienvenido al coolforum! ¡Un santuario de librepensadores y un lugar genial donde puedes charlar con tus amigos, seguir las actividades de los demás, publicar pensamientos interesantes y divertidos y compartir chistes divertidos!Regístrese y cree una cuenta con nosotros. Es totalmente gratuito y te da acceso a todos nuestros contenidos.</div>
                 </div>
             </div>
         </div>
