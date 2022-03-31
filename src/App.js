@@ -4,6 +4,7 @@ import Home from './Containers/Home/Home';
 import Registrar from './Containers/Registrar/Registrar';
 import Login from './Containers/Login/Login';
 import Nosotros from './Containers/Nosotros/Nosotros';
+import Perfil from './Containers/Perfil/Perfil';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path="/registrar" element={<Registrar/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/nosotros" element={<Nosotros />} />
+          <Route path="/perfil" element={<Perfil />} />
         </Routes>
       </BrowserRouter>
     </div>
