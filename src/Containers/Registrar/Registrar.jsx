@@ -49,8 +49,9 @@ const Registrar = () => {
             apellidos: datosUsuario.apellidos,
             edad: datosUsuario.edad,
             telefono: datosUsuario.telefono,
+            ciudad: datosUsuario.ciudad,
             correo: datosUsuario.correo,
-            clave: datosUsuario.clave
+            clave: datosUsuario.clave,
         }
 
         console.log("Esto se llama cuerpo", body);
@@ -58,7 +59,7 @@ const Registrar = () => {
 
         try {
             console.log(`${baseURL}/usuarios`);
-            let resultado = await axios.post(`${baseURL}/usuarios`, body);
+            let resultado = await axios.post(`${baseURL}usuarios`, body);
             console.log(resultado);
 
             setTimeout(() => {
@@ -81,8 +82,9 @@ const Registrar = () => {
                         </div>
                         <input className='input' type="text" name="nombre" id="nombre" title="nombre" placeholder="Nombre:" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
                         <input className='input' type="text" name="apellidos" id="apellidos" title="apellidos" placeholder="Apellidos:" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
-                        <input className='input' type="date" name="edad" id="edad" title="edad" placeholder="Edad" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
-                        <input className='input' type="text" name="telefono" id="telefono" title="telefono" placeholder="Telefono" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
+                        <input className='input' type="date" name="edad" id="edad" title="edad" placeholder="Fecha de Nacimiento" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
+                        <input className='input' type="text" name="telefono" id="telefono" title="telefono" placeholder="Telefono (opcional)" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
+                        <input className='input' type="text" name="ciudad" id="ciudad" title="ciudad" placeholder="Ciudad (opcional)" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
                         <input className='input' type="email" name="correo" id="correo" title="correo" placeholder="Correo Electronico" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
                         <input className='input' type="password" name="clave" id="clave" title="clave" placeholder="Contraseña" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
                         <div className="botonRegistro" onClick={() => Registrame()}>
