@@ -8,3 +8,22 @@
     align-items: center;
     justify-content: space-evenly;
 }
+
+.boton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #611B5E;
+    border-radius: 2em;
+    height: 4em;
+    width: 8em;
+    cursor: pointer;
+    border-color: black;
+    border: 2px solid #611B5E;
+}
+
+.boton:hover{
+    background-color: rgba(196, 196, 196, 1);
+    font-weight: bolder;
+    color: black;
+}
