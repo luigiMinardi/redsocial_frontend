@@ -58,7 +58,8 @@ const Login = (props) => {
                 correo: datosUsuario.correo,
                 clave: datosUsuario.clave
             }
-            let resultado = await axios.post(`${baseURL}usuarios/login`, body);          // AQUI ES DONDE VA EL ENDPOINT DEL BACKEND.
+            //ROBERTO TIENES QUE QUITAR LA ULTIMA BARRA DEL URL EN TU .ENV Y DEJAR LA BARRA AQUI EN LINEA 62 COMO ESTA
+            let resultado = await axios.post(`${baseURL}/usuarios/login`, body);          // AQUI ES DONDE VA EL ENDPOINT DEL BACKEND.
             // Cambiamos el valor del Hook credenciales, por lo tanto recargará el componente.
             if(resultado.data === 'Usuario o contraseña inválido'){
                 setMsgError2('Usuario o contraseña inválido')

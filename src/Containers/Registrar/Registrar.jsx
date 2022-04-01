@@ -42,7 +42,7 @@ const Registrar = () => {
 
     //Funciones locales del componente
 
-    const Registrame = async (props) => {
+    const registrame = async (props) => {
 
         let body = {
             nombre: datosUsuario.nombre,
@@ -58,8 +58,8 @@ const Registrar = () => {
         //3 send to axios
 
         try {
-            console.log(`${baseURL}/usuarios`);
-            let resultado = await axios.post(`${baseURL}usuarios`, body);
+    //ROBERTO TIENES QUE QUITAR LA ULTIMA BARRA DEL URL EN TU .ENV Y DEJAR LA BARRA AQUI EN LINEA 62 COMO ESTA
+            let resultado = await axios.post(`${baseURL}/usuarios`, body);
             console.log(resultado);
 
             setTimeout(() => {
@@ -68,6 +68,7 @@ const Registrar = () => {
 
         } catch (error) {
             console.log(error.response);
+            console.log(error, 'error');
         }
     }
     return (
@@ -87,7 +88,7 @@ const Registrar = () => {
                         <input className='input' type="text" name="ciudad" id="ciudad" title="ciudad" placeholder="Ciudad (opcional)" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
                         <input className='input' type="email" name="correo" id="correo" title="correo" placeholder="Correo Electronico" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
                         <input className='input' type="password" name="clave" id="clave" title="clave" placeholder="Contraseña" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
-                        <div className="botonRegistro" onClick={() => Registrame()}>
+                        <div className="botonRegistro" onClick={() => registrame()}>
                             Registrar!
                         </div>
                     </div>

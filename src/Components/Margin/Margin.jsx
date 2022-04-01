@@ -18,24 +18,24 @@ const Margin = (props) => {
     }
 
     if (props.credenciales.token === '') {
-    return (
-        <div className='designMargin'>
-            <a className='boton' onClick={() => navigate('/')}>Foro</a>
-            <a className='boton' onClick={() => navigate('/registrar')}>Registrarse</a>
-            <a className='boton' onClick={() => navigate('/login')}>Login</a>
-            <a className='boton' onClick={() => navigate('/nosotros')}>Sobre Nosotros</a>
-            <a className='boton' onClick={() => logOut()}>Cerrar Session</a>
-        </div>
-    )
-    } else {
-        return(
+        return (
             <div className='designMargin'>
-            <a className='boton' onClick={() => navigate('/')}>Foro</a>
-            <a className='boton' onClick={() => navigate('/publicaciones')}>Mis Publicaciones</a>
-            <a className='boton' onClick={() => navigate('/usuarios')}>Amigos</a>
-            <a className='boton' onClick={() => navigate('/perfil')}>Mi Perfil</a>
-            <a className='boton' onClick={() => logOut()}>Cerrar Session</a>
-        </div>
+                <a className='boton' onClick={() => navigate('/')}>Foro</a>
+                <a className='boton' onClick={() => navigate('/registrar')}>Registrarse</a>
+                <a className='boton' onClick={() => navigate('/login')}>Login</a>
+                <a className='boton' onClick={() => navigate('/nosotros')}>Sobre Nosotros</a>
+                <a className='boton' onClick={() => logOut()}>Cerrar Session</a>
+            </div>
+        )
+    } else {
+        return (
+            <div className='designMargin'>
+                <a className='boton' onClick={() => navigate('/')}>Foro</a>
+                <a className='boton' onClick={() => navigate('/publicaciones')}>Mis Publicaciones</a>
+                <a className='boton' onClick={() => navigate('/usuarios')}>Amigos</a>
+                <a className='boton' onClick={() => navigate('/perfil')}>Mi Perfil</a>
+                <a className='boton' onClick={() => logOut()}>Cerrar Session</a>
+            </div>
         )
     }
 }
