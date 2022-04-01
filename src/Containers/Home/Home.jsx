@@ -24,6 +24,7 @@ const Home = () => {
                                     <div className="nombreUsuario"><p>Nombre de Usuario</p></div>
                                     <div className="fechaPost"><p>Fecha de Post</p></div>
                                 </div>
+                                <h1>PAGINA DEL FORO</h1>
                             </div>
                         </div>
                 </div>
