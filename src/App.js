@@ -6,6 +6,7 @@ import Login from './Containers/Login/Login';
 import Nosotros from './Containers/Nosotros/Nosotros';
 import Perfil from './Containers/Perfil/Perfil';
 import Publicaciones from './Containers/Publicaciones/Publicaciones';
+import Usuarios from './Containers/Usuarios/Usuarios';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/nosotros" element={<Nosotros/>} />
           <Route path="/perfil" element={<Perfil/>} />
           <Route path="/publicaciones" element={<Publicaciones/>} />
+          <Route path="/usuarios" element={<Usuarios/>} />
         </Routes>
       </BrowserRouter>
     </div>

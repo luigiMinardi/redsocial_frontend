@@ -78,8 +78,6 @@ const Perfil = (props) => {
                         <div className="botonPostFoto">Cambiar imagen de Perfil</div>
                         <div className="botonPostFoto">Cambiar la contraseña</div>
                     </div>
-
-
                     <div className="foroPostPerfil">
                         <div className="postCabezaPerfil">
                             <p className='letras'>Actualiza tus datos</p>
