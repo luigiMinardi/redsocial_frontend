@@ -5,7 +5,7 @@ import './Header.css';
 
 const Header = (props) => {
     return (
-        <div className='designHeader'>{props.credenciales?.usuario.nombre}{props.credenciales?.usuario.apellidos}
+        <div className='designHeader'><p className='letrasHeader'>{props.credenciales?.usuario.nombre} {props.credenciales?.usuario.apellidos}</p>
         </div>
     )
 }
