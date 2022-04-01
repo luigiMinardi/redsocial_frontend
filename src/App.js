@@ -7,6 +7,8 @@ import Nosotros from './Containers/Nosotros/Nosotros';
 import Perfil from './Containers/Perfil/Perfil';
 import Publicaciones from './Containers/Publicaciones/Publicaciones';
 import Usuarios from './Containers/Usuarios/Usuarios';
+import Siguiendo from './Containers/Siguiendo/Siguiendo';
+import Seguidores from './Containers/Seguidores/Seguidores';
 
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
           <Route path="/perfil" element={<Perfil/>} />
           <Route path="/publicaciones" element={<Publicaciones/>} />
           <Route path="/usuarios" element={<Usuarios/>} />
+          <Route path="/siguiendo" element={<Siguiendo/>} />
+          <Route path="/seguidores" element={<Seguidores/>} />
         </Routes>
       </BrowserRouter>
     </div>
