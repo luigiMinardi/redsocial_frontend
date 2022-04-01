@@ -10,8 +10,59 @@
     height: 100%;
 }
 
+.foroPostFoto {
+    border-radius: 3em 0em 0em 2em;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(196, 196, 196, 1);
+    height: 40em;
+    width: 45em;
+    align-items: center;
+    justify-content: flex-start;
+    border-right: #2B2B31 solid 2px;
+}
+
+.postCabezaFoto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #611B5E;
+    height: 3em;
+    width: 100%;
+    border-radius: 2em 0em 0 0;
+    margin-bottom: 5em;
+}
+
+.imagenPerfil{
+    background-image: url(/img/dedete.jpg);
+    width: 20em;
+    height: 15em;
+    margin-bottom: 3em;
+    border: 2px solid #611B5E;
+}
+
+.botonPostFoto{
+    height: 3em;
+    width: 25em;
+    background-color: #555a402d;
+    color: black;
+    border: 2px solid #611B5E;
+    border-radius: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+}
+
+.botonPostFoto:hover {
+    background-color: rgba(196, 196, 196, 1);
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+
 .foroPostPerfil {
-    border-radius: 2em 2em 2em 2em;
+    border-radius: 0em 3em 2em 0em;
     display: flex;
     flex-direction: column;
     background-color: rgba(196, 196, 196, 1);
@@ -28,7 +79,7 @@
     background-color: #611B5E;
     height: 3em;
     width: 100%;
-    border-radius: 2em 2em 0 0;
+    border-radius: 0em 2em 0 0;
     margin-bottom: 5em;
 }
 
@@ -37,10 +88,9 @@
     height: 100%;
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: center;
     align-items: center;
     justify-content: center;
-
 }
 
 .botonPerfil{

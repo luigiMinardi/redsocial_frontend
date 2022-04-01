@@ -22,7 +22,7 @@
 }
 
 .letras{
-    color: black;
+    color: rgba(196, 196, 196, 1);
     font-size: 2em;
     font-family: 'Roboto', sans-serif;
     margin-top: 1em;

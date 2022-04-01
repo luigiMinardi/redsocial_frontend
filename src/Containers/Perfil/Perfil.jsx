@@ -70,6 +70,16 @@ const Perfil = (props) => {
             <div className="contenidoPerfil">
                 <Margin />
                 <div className='cuerpoPerfil'>
+                    <div className="foroPostFoto">
+                        <div className="postCabezaFoto">
+                            <p className='letras'>Foto de Perfil y Contraseña</p>
+                        </div>
+                        <div className="imagenPerfil"></div>
+                        <div className="botonPostFoto">Cambiar imagen de Perfil</div>
+                        <div className="botonPostFoto">Cambiar la contraseña</div>
+                    </div>
+
+
                     <div className="foroPostPerfil">
                         <div className="postCabezaPerfil">
                             <p className='letras'>Actualiza tus datos</p>
@@ -79,7 +89,7 @@ const Perfil = (props) => {
                         <input className='input' type="date" name="edad" id="edad" title="edad" placeholder="Fecha de Nacimiento" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
                         <input className='input' type="text" name="telefono" id="telefono" title="telefono" placeholder={`Telefono (opcional)  ${props.credenciales.usuario.telefono}`} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
                         <input className='input' type="text" name="ciudad" id="ciudad" title="ciudad" placeholder={`Ciudad (opcional)  ${props.credenciales.usuario.ciudad}`} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
-                        <div className="botonPerfil" onClick={()=>actualizaUsuario()}>
+                        <div className="botonPerfil" onClick={() => actualizaUsuario()}>
                             Actualizar Perfil
                         </div>
                     </div>
@@ -88,6 +98,6 @@ const Perfil = (props) => {
         </div>
     )
 }
-    export default connect((state) => ({
-        credenciales: state.credenciales
-    }))(Perfil);
+export default connect((state) => ({
+    credenciales: state.credenciales
+}))(Perfil);
