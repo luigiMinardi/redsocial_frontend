@@ -18,16 +18,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-
-}
-
-.foroImg{
-    height: 6em;
-    width: 6em;
-    align-items: center;
-    justify-content: center;
-    padding-right: 1em;
-    margin-bottom: 29em;
+    overflow-y: scroll;
 }
 
 .foroPostHome {
@@ -48,16 +39,22 @@
 }
 
 .nombreUsuario {
-    color: black;
+    color: white;
     width: 50%;
 }
-
 
 .fechaPost {
-    color: black;
+    color: white;
     width: 50%;
 }
 
+.imagenUsuario {
+    height: 5em;
+    width: 5em;
+    border-radius: 50%;
+    border: 2px solid #611B5E;
+    margin-top: 1em;
+}
 
 
 
