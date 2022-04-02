@@ -3,9 +3,11 @@
     flex-direction: column;
     background-color: #2B2B31;
     height: 100vh;
+    /* width: 100vw; */
 }
 
-.contenidoHome{
+.contenidoHome {
+    background-color: aqua;
     display: flex;
     height: 100%;
 }
@@ -15,17 +17,26 @@
     height: 100%;
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
+    /* flex-wrap: wrap; */
     justify-content: center;
     overflow-y: scroll;
+}
+
+.cuerpoHome::-webkit-scrollbar {
+    display: none;
 }
 
 .foroPostHome {
     border-radius: 3em 3em 2em 2em;
     background-color: rgba(196, 196, 196, 1);
-    height: 55em;
     width: 65em;
+    margin-bottom: 2em;
+}
+
+.foroPostHome:nth-of-type(1){
+    margin-top: 40em;
 }
 
 .postCabezaHome {
@@ -38,9 +49,18 @@
     border-radius: 2em 2em 0 0;
 }
 
-.nombreUsuario {
+.nombreUsuarioHome {
     color: white;
     width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.nombreUsuarioHome:hover{
+    background-color: #611b5d;
+    border-radius: 2em 0 0 0;
 }
 
 .fechaPost {
@@ -48,14 +68,60 @@
     width: 50%;
 }
 
-.imagenUsuario {
-    height: 5em;
-    width: 5em;
+.imagenUsuarioHome {
+    height: 2em;
+    width: 2em;
     border-radius: 50%;
     border: 2px solid #611B5E;
-    margin-top: 1em;
+    margin-right: 2em;
 }
 
+.contenidoPostHome {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-inline: 10em;
+    cursor: pointer;
+}
+
+.contenidoPostHome:hover {
+    background-color: #611b5d4f;
+}
+
+.tituloHilo{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.cuerpoHilo{
+    font-size: 2em;
+}
+
+.botonesPostHome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botonHome{
+    height: 3em;
+    width: 10em;
+    background-color: #555a402d;
+    color: black;
+    border: 2px solid #611B5E;
+    border-radius: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+    margin: 1em
+}
+
+.botonHome:hover {
+    background-color: rgba(196, 196, 196, 1);
+    font-weight: bolder;
+    cursor: pointer;
+}
 
 
 
