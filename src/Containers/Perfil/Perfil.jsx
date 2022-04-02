@@ -65,30 +65,28 @@ const Perfil = (props) => {
     }
 
     return (
-        <div className='designPerfil'>
+        <div className='designPerfil2'>
             <Header />
-            <div className="contenidoPerfil">
+            <div className="contenidoPerfil2">
                 <Margin />
-                <div className='cuerpoPerfil'>
-                    <div className="foroPostFoto">
-                        <div className="postCabezaFoto">
-                            <p className='letras'>Foto de Perfil y Contraseña</p>
+                <div className='cuerpoPerfil2'>
+                    <div className='usuarioCaja'>
+                        <div className="sobreYo">
+                            <div className="nombreFila">Callum Joseph Iain Gordon</div>
+                            <div className="contenidoFila">
+                                <div className="imagenUsuario"></div>
+                                <div className="edadCiudad">
+                                    <div className="ciudadUsuario">Ciudad:</div>
+                                    <div className="edadUsuario">Edad:</div>
+                                </div>
+                            </div>
+                            <div className="informacionUsuario">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</div>
+                            <div className="butonSeguir"> Seguirle!</div>   
                         </div>
-                        <div className="imagenPerfil"></div>
-                        <div className="botonPostFoto">Cambiar imagen de Perfil</div>
-                        <div className="botonPostFoto">Cambiar la contraseña</div>
-                    </div>
-                    <div className="foroPostPerfil">
-                        <div className="postCabezaPerfil">
-                            <p className='letras'>Actualiza tus datos</p>
-                        </div>
-                        <input className='input' type="text" name="nombre" id="nombre" title="nombre" placeholder={`Nombre:  ${props.credenciales.usuario.nombre}`} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
-                        <input className='input' type="text" name="apellidos" id="apellidos" title="apellidos" placeholder={`Apellidos:  ${props.credenciales.usuario.apellidos}`} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
-                        <input className='input' type="date" name="edad" id="edad" title="edad" placeholder="Fecha de Nacimiento" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
-                        <input className='input' type="text" name="telefono" id="telefono" title="telefono" placeholder={`Telefono (opcional)  ${props.credenciales.usuario.telefono}`} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
-                        <input className='input' type="text" name="ciudad" id="ciudad" title="ciudad" placeholder={`Ciudad (opcional)  ${props.credenciales.usuario.ciudad}`} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
-                        <div className="botonPerfil" onClick={() => actualizaUsuario()}>
-                            Actualizar Perfil
+                        <div className="torreDatos">
+                            <div className="posts">Posts: </div>
+                            <div className="siguiendo">Siguiendo: </div>
+                            <div className="seguidores">Seguidores: </div>
                         </div>
                     </div>
                 </div>
