@@ -58,7 +58,6 @@ const Registrar = () => {
         //3 send to axios
 
         try {
-    //ROBERTO TIENES QUE QUITAR LA ULTIMA BARRA DEL URL EN TU .ENV Y DEJAR LA BARRA AQUI EN LINEA 62 COMO ESTA
             let resultado = await axios.post(`${baseURL}/usuarios`, body);
             console.log(resultado);
 
