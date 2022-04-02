@@ -17,6 +17,7 @@
     background-color: #2B2B31;
     height: 100%;
     width: 100%;
+    border-radius: 2em 2em 2em 2em;
 }
 
 .sobreYo {
@@ -30,6 +31,7 @@
     width: 50em;
     margin-top: 1em;
     margin-left: 10em;
+    border-radius: 2em 2em 2em 2em;
 }
 
 .nombreFila {
@@ -37,6 +39,7 @@
     width: 100%;
     font-size: 2vw;
     font-weight: bolder;
+    border-radius: 2em 2em 2em 2em;
 }
 
 .contenidoFila {
@@ -58,6 +61,7 @@
     width: 20em;
     height: 15em;
     border: 2px solid #611B5E;
+    border-radius: 2em 2em 2em 2em;
 }
 
 .edadCiudad {
@@ -102,6 +106,7 @@
     width: 16em;
     margin-top: .5em;
     margin-bottom: 1em;
+    border-radius: 2em 2em 2em 2em;
 }
 
 .posts:hover{
@@ -123,6 +128,7 @@
     width: 16em;
     margin-top: .5em;
     margin-bottom: 1em;
+    border-radius: 2em 2em 2em 2em;
 }
 
 .siguiendo:hover{
@@ -144,6 +150,7 @@
     width: 16em;
     margin-top: .5em;
     margin-bottom: 1em;
+    border-radius: 2em 2em 2em 2em;
 }
 
 .seguidores:hover{
@@ -153,6 +160,19 @@
     color: black;
 }
 
+.correo {
+    font-weight: bolder;
+    margin-top: 1em;
+    font-size: 1vw;
+    margin-left: 2em;
+}
+
+.telefono {
+    font-weight: bolder;
+    margin-top: 1em;
+    font-size: 1vw;
+    margin-left: 2em;
+}
 
 .informacionUsuario {
     background-color: green;

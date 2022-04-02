@@ -23,6 +23,7 @@ const Perfil = (props) => {
         apellidos: props.credenciales.usuario.apellidos,
         telefono: props.credenciales.usuario.telefono,
         ciudad: props.credenciales.usuario.ciudad,
+        correo: props.credenciales.usuario.correo,
     })
 
     useEffect(() => {
@@ -65,7 +66,10 @@ console.log(props.credenciales);
                                         <div className="edadUsuario">{datosUsuario.edad}</div>
                                     </div>
                                 </div>
-                                <div className="informacionUsuario">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</div>
+                                 {/* <div className="informacionUsuario">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</div> */}
+                                        <div className="correo">{datosUsuario.correo}</div>
+                                        <div className="telefono">{datosUsuario.telefono}</div>
+
                                 <div className="butonesFondo">
                                     <div className="botonPerfil" onClick={() => navigate('/editar-perfil')}> Editar Perfil</div>
                                     {props.credenciales.usuario._id === datosUsuario._id
