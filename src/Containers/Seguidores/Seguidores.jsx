@@ -44,33 +44,56 @@ const Seguidores = (props) => {
         }
     };
 
-    return (
-        <div className='paginaSeguidores'>
-            <Header />
-            <div className="contenidoSeguidores">
-                <Margin />
-                <div className='cuerpoSeguidores'>
-                    <div className="foroPostSeguidores">
-                        {
-                            seguidores.map((usuario, index) => {
-                                return (
-                                    <div className="postSeguidores" key={index}>
-                                        <p className='letras1'>{usuario.nombre}</p>
-                                        <p className='letras1'>{usuario?.apellidos}</p>
-                                        <p className='letras1'>{usuario?.ciudad}</p>
-                                        <p className='letras1'>{usuario?.fecha}</p>
-                                        <img className='letras1' src={
-                                            usuario.foto === '' ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : usuario.foto
-                                        } />
-                                    </div>
-                                )
-                            })
-                        }
+    if (seguidores[0]?._id !== undefined) {
+        return (
+            <div className='paginaSeguidores'>
+                <Header />
+                <div className="contenidoSeguidores">
+                    <Margin />
+                    <div className='cuerpoSeguidores'>
+                        <div className="foroPostSeguidores">
+                            {
+                                seguidores.map((usuario, index) => {
+                                    return (
+                                        <div className="postSeguidores" key={index}>
+                                            <div className="cardSeguidores">
+                                                <div className='cardSeguidoresIzq'>
+                                                    <img className='imagenSeguidores' src={
+                                                        usuario.foto === '' ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : usuario.foto
+                                                    } />
+                                                    <button className='botonPerfil'>Ver Perfil</button>
+                                                </div>
+                                                <div className="cardSeguidoresDrc">
+                                                    <p className='letras1'>Nombre: {usuario.nombre}</p>
+                                                    <p className='letras1'>Apellidos: {usuario?.apellidos}</p>
+                                                    <p className='letras1'>Ciudad: {usuario?.ciudad}</p>
+                                                    <p className='letras1'>Fecha Seguidor: {usuario?.fecha}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    )
+        )
+    } else {
+        return (
+            <div className='paginaSeguidores'>
+                <Header />
+                <div className="contenidoSeguidores">
+                    <Margin />
+                    <div className='cuerpoSeguidores'>
+                        <div className="foroPostSeguidores">
+                            <div className='espinner'></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    };
 }
 
 export default connect((state) => ({
