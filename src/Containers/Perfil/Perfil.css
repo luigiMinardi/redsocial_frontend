@@ -1,99 +1,222 @@
-.designPerfil {
+.designPerfil2 {
     display: flex;
     flex-direction: column;
     background-color: #2B2B31;
     height: 100vh;
-    
+
 }
-.contenidoPerfil{
+
+.contenidoPerfil2 {
     display: flex;
     height: 100%;
 }
 
-.foroPostFoto {
-    border-radius: 3em 0em 0em 2em;
+.usuarioCaja {
+    display: flex;
+    flex-direction: row;
+    background-color: #2B2B31;
+    height: 100%;
+    width: 100%;
+    border-radius: 2em 2em 2em 2em;
+}
+
+.sobreYo {
     display: flex;
     flex-direction: column;
-    background-color: rgba(196, 196, 196, 1);
-    height: 40em;
-    width: 45em;
-    align-items: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
     justify-content: flex-start;
-    border-right: #2B2B31 solid 2px;
+    background-color: rgba(196, 196, 196, 1);
+    height: 90%;
+    width: 50em;
+    margin-top: 1em;
+    margin-left: 10em;
+    border-radius: 2em 2em 2em 2em;
 }
 
-.postCabezaFoto {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #611B5E;
-    height: 3em;
+.nombreFila {
+    height: 2em;
     width: 100%;
-    border-radius: 2em 0em 0 0;
-    margin-bottom: 5em;
+    font-size: 2vw;
+    font-weight: bolder;
+    border-radius: 2em 2em 2em 2em;
 }
 
-.imagenPerfil{
-    background-image: url(/img/dedete.jpg);
-    width: 20em;
-    height: 15em;
-    margin-bottom: 3em;
-    border: 2px solid #611B5E;
-}
-
-.botonPostFoto{
-    height: 3em;
-    width: 25em;
-    background-color: #555a402d;
-    color: black;
-    border: 2px solid #611B5E;
-    border-radius: 2em;
+.contenidoFila {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    width: 100%;
     margin-top: 1em;
 }
 
-.botonPostFoto:hover {
-    background-color: rgba(196, 196, 196, 1);
+
+.imagenUsuario {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-image: url(/img/dedete.jpg);
+    width: 20em;
+    height: 15em;
+    border: 2px solid #611B5E;
+    border-radius: 2em 2em 2em 2em;
+}
+
+.edadCiudad {
+    display: flex;
+    flex-direction: column;
+    align-items: space-evenly;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+.ciudadUsuario {
     font-weight: bolder;
+    margin-top: 1em;
+    font-size: 1vw;
+}
+
+.edadUsuario {
+    font-weight: bolder;
+    font-size: 1vw;
+    margin-top: 5em;
+}
+
+.torreDatos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #2B2B31;
+    height: 95%;
+    width: 50%;
+}
+
+.posts {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: large;
+    font-weight: bold;
+    background-color: rgba(196, 196, 196, 1);
+    height: 9em;
+    width: 16em;
+    margin-top: .5em;
+    margin-bottom: 1em;
+    border-radius: 2em 2em 2em 2em;
+}
+
+.posts:hover{
+    background-color: rgb(185, 173, 173);
+    font-weight: bolder;
+    cursor: pointer;
+    color: black;
+}
+
+.siguiendo {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: large;
+    font-weight: bold;
+    background-color: rgba(196, 196, 196, 1);
+    height: 9em;
+    width: 16em;
+    margin-top: .5em;
+    margin-bottom: 1em;
+    border-radius: 2em 2em 2em 2em;
+}
+
+.siguiendo:hover{
+    background-color: rgb(185, 173, 173);
+    font-weight: bolder;
+    cursor: pointer;
+    color: black;
+}
+
+.seguidores {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: large;
+    font-weight: bold;
+    background-color: rgba(196, 196, 196, 1);
+    height: 9em;
+    width: 16em;
+    margin-top: .5em;
+    margin-bottom: 1em;
+    border-radius: 2em 2em 2em 2em;
+}
+
+.seguidores:hover{
+    background-color: rgb(185, 173, 173);;
+    font-weight: bolder;
+    cursor: pointer;
+    color: black;
+}
+
+.correo {
+    font-weight: bolder;
+    margin-top: 1em;
+    font-size: 1vw;
+    margin-left: 2em;
+}
+
+.telefono {
+    font-weight: bolder;
+    margin-top: 1em;
+    font-size: 1vw;
+    margin-left: 2em;
+}
+
+.informacionUsuario {
+    background-color: green;
+    margin-top: 1em;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+
+
+.butonesFondo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+
+.editarPerfil {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 2em;
+    width: 8em;
+    border-radius: .2em;
+    background-color: purple;
+    color: white;
+    font-weight: lighter;
+    margin: 1em;
+}
+
+
+.editarPerfil:hover{
+    background-color:  black;
+    transition: 0.2s;
+    font-weight: bold;
     cursor: pointer;
 }
 
 
-.foroPostPerfil {
-    border-radius: 0em 3em 2em 0em;
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(196, 196, 196, 1);
-    height: 40em;
-    width: 45em;
-    align-items: center;
-    justify-content: flex-start;
-}
 
-.postCabezaPerfil {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #611B5E;
-    height: 3em;
-    width: 100%;
-    border-radius: 0em 2em 0 0;
-    margin-bottom: 5em;
-}
-
-.cuerpoPerfil {
-    background-color: #2B2B31;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: center;
-    align-items: center;
-    justify-content: center;
-}
-
-.botonPerfil{
+.botonSeguir {
     height: 3em;
     width: 10em;
     background-color: #555a402d;
@@ -106,8 +229,31 @@
     margin-top: 1em;
 }
 
-.botonPerfil:hover {
+
+.botonSeguir:hover{
     background-color: rgba(196, 196, 196, 1);
     font-weight: bolder;
     cursor: pointer;
+    color: black;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
