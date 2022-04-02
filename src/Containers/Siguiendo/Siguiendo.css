@@ -21,8 +21,40 @@
 }
 
 .foroPostSiguiendo {
-    border-radius: 3em 3em 2em 2em;
+    border-radius: 3em 0em 0em 2em;
     background-color: rgba(196, 196, 196, 1);
-    height: 55em;
-    width: 65em;
+    height: 65em;
+    width: 85em;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.cardSiguiendo {
+    height: 15em;
+    width: 40em;
+    background-color: #870b2adf;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 2em;
+    padding: .2em;
+    margin: .7em;
+}
+
+.cardSiguiendoIzq {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.imagenSiguiendo {
+    height: 10em;
+    width: 10em;
+    border-radius: 50%;
+    border: 2px solid #611B5E;
+    margin-top: 1em;
 }
