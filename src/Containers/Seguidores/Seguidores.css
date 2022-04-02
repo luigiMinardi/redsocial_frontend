@@ -21,15 +21,6 @@
 
 }
 
-.foroImg {
-    height: 6em;
-    width: 6em;
-    align-items: center;
-    justify-content: center;
-    padding-right: 1em;
-    margin-bottom: 29em;
-}
-
 .foroPostSeguidores {
     border-radius: 3em 3em 2em 2em;
     background-color: rgba(196, 196, 196, 1);
@@ -37,12 +28,3 @@
     width: 65em;
 }
 
-.postCabezaSeguidores {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #611B5E;
-    height: 3em;
-    width: 100%;
-    border-radius: 2em 2em 0 0;
-}

@@ -83,13 +83,8 @@ const Siguiendo = (props) => {
                 <div className="contenidoSiguiendo">
                     <Margin />
                     <div className='cuerpoSiguiendo'>
-                        <img className='foroImg' />
                         <div className="foroPostSiguiendo">
-                            <div className="postCabezaSiguiendo">
-                                <div className="nombreUsuario"><p>Nombre de Usuario</p></div>
-                                <div className="fechaPost"><p>Fecha de Post</p></div>
-                            </div>
-                            <h1>PAGINA DEL FORO</h1>
+                            <h1>AQUI VA EL ESPINNER DE CARGA</h1>
                         </div>
                     </div>
                 </div>
