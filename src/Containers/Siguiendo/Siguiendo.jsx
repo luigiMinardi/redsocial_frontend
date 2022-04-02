@@ -57,16 +57,24 @@ const Siguiendo = (props) => {
                     <div className='cuerpoSiguiendo'>
                         <div className="foroPostSiguiendo">
                             {
-                                siguiendo.map(( usuario , index) => {
+                                siguiendo.map((usuario, index) => {
                                     return (
                                         <div className="postSiguiendo" key={index}>
-                                            <p className='letras1'>{usuario.nombre}</p>
-                                            <p className='letras1'>{usuario?.apellidos}</p>
-                                            <p className='letras1'>{usuario?.ciudad}</p>
-                                            <p className='letras1'>{usuario?.fecha}</p>
-                                            <img className='letras1' src={
-                                                usuario.foto === '' ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : usuario.foto
-                                            } />
+                                            <div className="cardSiguiendo">
+                                                <div className='cardSiguiendoIzq'>
+                                                    <img className='imagenSiguiendo' src={
+                                                        usuario.foto === '' ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : usuario.foto
+                                                    } />
+                                                    <button className='botonPerfil'>Ver Perfil</button>
+                                                </div>
+                                                <div className="cardSiguiendoDrc">
+                                                <p className='letras1'>{usuario.nombre}</p>
+                                                <p className='letras1'>{usuario?.apellidos}</p>
+                                                <p className='letras1'>{usuario?.ciudad}</p>
+                                                <p className='letras1'>{usuario?.fecha}</p>
+                                            </div>
+                                            </div>
+
                                         </div>
                                     )
                                 })
@@ -84,7 +92,7 @@ const Siguiendo = (props) => {
                     <Margin />
                     <div className='cuerpoSiguiendo'>
                         <div className="foroPostSiguiendo">
-                            <h1>AQUI VA EL ESPINNER DE CARGA</h1>
+                            <div className='espinner'></div>
                         </div>
                     </div>
                 </div>
