@@ -7,6 +7,8 @@ import { baseURL } from '../../utiles';
 import './Publicaciones.css';
 import Margin from '../../Components/Margin/Margin';
 import Header from '../../Components/Header/Header';
+import moment from 'moment';
+import { DATOS_HILO, DATOS_PERFIL } from '../../redux/actions';
 
 
 const Publicaciones = (props) => {
@@ -27,22 +29,28 @@ const Publicaciones = (props) => {
         }
     })
 
-    useEffect(() => {
-        console.log(publicaciones);
-    }, [publicaciones]);
-
     const traerPublicaciones = async () => {
         try {
             const respuesta = await axios.get(`${baseURL}/usuarios/${props.credenciales.usuario._id}/publicaciones`, config);
-            console.log(respuesta.data)
             setTimeout(() => {
-                setPublicaciones(respuesta.data.publicaciones);
+                setPublicaciones(respuesta.data.publicaciones.reverse());
             }, 1000);
         } catch (error) {
             console.log(error);
         }
     };
-    if (publicaciones[0]?.id !== undefined) {
+
+    const escogeHilo = async (hiloId) => {
+        await props.dispatch({ type: DATOS_HILO, payload: hiloId });
+        navigate("/hilo");
+    };
+
+    const escogeUsuario = async (usuarioId) => {
+        await props.dispatch({ type: DATOS_PERFIL, payload: usuarioId });
+        navigate("/perfil");
+    };
+
+    if (publicaciones.length !== 0) {
         return (
             <div className='paginaPublicaciones'>
                 <Header />
@@ -52,22 +60,22 @@ const Publicaciones = (props) => {
                         {
                             publicaciones.map((publicaciones, index) => {
                                 return (
-                                    <div className="foroPostHome" key={index}>
-                                        <div className="postCabezaHome">
-                                            <div className="nombreUsuarioHome">
-                                                <img className='imagenUsuarioHome' src={
-                                                    publicaciones.usuario.foto === '' ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : publicaciones.usuario.foto
+                                    <div className="foroPostPublicaciones" key={index}>
+                                        <div className="postCabezaPublicaciones">
+                                            <div className="nombreUsuarioPublicaciones" onClick={() => escogeUsuario(publicaciones[0].usuario.usuarioId)}>
+                                                <img className='imagenUsuarioPublicaciones' src={
+                                                    publicaciones[0].usuario.foto === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : publicaciones[0].usuario.foto
                                                 } />
-                                                <p>{publicaciones.usuario.nombre} {publicaciones.usuario.apellidos}</p>
+                                                <p>{publicaciones[0].usuario.nombre} {publicaciones[0].usuario.apellidos}</p>
                                             </div>
-                                            <div className="fechaPost"><p>Fecha : {publicaciones.fecha}</p></div>
+                                            <div className="fechaPost"><p>Fecha: {moment(publicaciones[0].fecha).fromNow()}</p></div>
                                         </div>
-                                        <div className='contenidoPostHome'>
-                                            <p className='tituloHilo'>{publicaciones.titulo}</p>
-                                            <p className='cuerpoHilo'>{publicaciones.cuerpo}</p>
+                                        <div className='contenidoPostPublicaciones' onClick={() => escogeHilo(publicaciones[0]._id)}>
+                                            <p className='tituloHiloPublicaciones'>{publicaciones[0].titulo}</p>
+                                            <p className='cuerpoHiloPublicaciones'>{publicaciones[0].cuerpo}</p>
                                         </div>
-                                        <div className="botonesPostHome">
-                                            <button className='botonHome'>Me gusta</button>
+                                        <div className="botonesPostPublicaciones">
+                                            <button className='botonPublicaciones'>Me gusta</button>
                                         </div>
                                     </div>
                                 )
@@ -82,7 +90,7 @@ const Publicaciones = (props) => {
         return (
             <div className='paginaHome'>
                 <Header />
-                <div className="contenidoHome">
+                <div id='malo' className="contenidoHome">
                     <Margin />
                     <div className='cuerpoHome'>
                         <div className="espinner"></div>

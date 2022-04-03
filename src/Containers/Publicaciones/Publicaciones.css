@@ -2,41 +2,31 @@
     display: flex;
     flex-direction: column;
     background-color: #2B2B31;
-    height: 72.2em;
-    width: 100%;
+    height: 100vh;
 }
 
 .contenidoPublicaciones{
-    background-color: aqua;
     display: flex;
-    height: 100%;
-    /* height: 72.2em; */
-    width: 100%;
+    height: auto;
 }
 
 .cuerpoPublicaciones {
-    background-color: #2B2B31;
-    height: 72.2em;
-    /* height: 100%; */
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* flex-wrap: wrap; */
-    justify-content: center;
-    overflow-y: scroll;
-}
-
-
-.cuerpoPublicaciones::-webkit-scrollbar {
-    display: none;
+    justify-content: space-between;
 }
 
 .foroPostPublicaciones {
-    border-radius: 3em 3em 2em 2em;
+    border-radius: 2em;
     background-color: rgba(196, 196, 196, 1);
-    width: 65em;
+    width: 75%;
     margin-bottom: 2em;
+}
+
+.foroPostPublicaciones:nth-of-type(1) {
+    margin-top: 2em;
 }
 
 .postCabezaPublicaciones {
@@ -47,4 +37,82 @@
     height: 3em;
     width: 100%;
     border-radius: 2em 2em 0 0;
+}
+
+.nombreUsuarioPublicaciones {
+    color: white;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.nombreUsuarioPublicaciones:hover{
+    background-color: #611b5d;
+    border-radius: 2em 0 0 0;
+}
+
+.fechaPost {
+    color: white;
+    width: 50%;
+}
+
+.imagenUsuarioPublicaciones {
+    height: 2em;
+    width: 2em;
+    border-radius: 50%;
+    border: 2px solid #611B5E;
+    margin-right: 2em;
+}
+
+.contenidoPostPublicaciones {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-inline: 10em;
+    cursor: pointer;
+}
+
+.contenidoPostPublicaciones:hover {
+    background-color: #611b5d4f;
+}
+
+.tituloHiloPublicaciones{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.cuerpoHiloPublicaciones {
+    font-size: 2em;
+}
+
+.botonesPostPublicaciones {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botonPublicaciones{
+    height: 3em;
+    width: 10em;
+    background-color: #555a402d;
+    color: black;
+    border: 2px solid #611B5E;
+    border-radius: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+    margin: 1em
+}
+
+.botonPublicaciones:hover {
+    background-color: rgba(196, 196, 196, 1);
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+#malo {
+    height: 100vh;
 }
