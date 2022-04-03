@@ -81,7 +81,7 @@ console.log(props.credenciales);
 
                             </div>
                             <div className="torreDatos">
-                                <div className="posts">Posts: </div>
+                                <div className="posts" onClick={() => navigate('/publicaciones')}>Posts: </div>
                                 <div className="siguiendo" onClick={() => navigate('/siguiendo')}>Siguiendo: </div>
                                 <div className="seguidores" onClick={() => navigate('/seguidores')}>Seguidores: </div>
                             </div>
