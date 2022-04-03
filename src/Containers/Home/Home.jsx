@@ -31,8 +31,8 @@ const Home = (props) => {
         }
     };
 
-    const escogeHilo = (hilo) => {
-        props.dispatch({ type: DATOS_HILO, payload: hilo });
+    const escogeHilo = (hiloId) => {
+        props.dispatch({ type: DATOS_HILO, payload: hiloId });
         // Redirigimos a la pagina hilo con navigate al Pulsar sobre un hilo en concreto.
         navigate("/hilo");
     };
@@ -57,7 +57,7 @@ const Home = (props) => {
                                             </div>
                                             <div className="fechaPost"><p>Fecha : {moment(hilo.fecha).fromNow()}</p></div>
                                         </div>
-                                        <div className='contenidoPostHome' onClick={() => escogeHilo(hilo)}>
+                                        <div className='contenidoPostHome' onClick={() => escogeHilo(hilo._id)}>
                                             <p className='tituloHiloHome'>{hilo.titulo}</p>
                                             <p className='cuerpoHiloHome'>{hilo.cuerpo}</p>
                                         </div>
