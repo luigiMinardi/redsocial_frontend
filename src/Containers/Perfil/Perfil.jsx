@@ -27,18 +27,22 @@ const Perfil = (props) => {
         };
     })
 
+    useEffect(() => {
+        muestraUsuario();
+    }, [props.perfil._id])
+
     const muestraUsuario = async () => {
         let config = {
             headers: { Authorization: `Bearer ${props.credenciales.token}` }
         };
         try {
-            let res = await axios.get(`${baseURL}/usuarios/${props.credenciales.usuario._id}`, config);
+            let res = await axios.get(`${baseURL}/usuarios/${props.perfil._id}`, config);
             setDatosUsuario(res.data)
         } catch (error) {
             console.log(error)
         }
     }
-
+    console.log(props.perfil)
     if (datosUsuario._id !== '') {
         return (
             <div className='paginaPerfil'>
@@ -156,5 +160,6 @@ const Perfil = (props) => {
 }
 
 export default connect((state) => ({
-    credenciales: state.credenciales
+    credenciales: state.credenciales,
+    perfil: state.datosPerfil
 }))(Perfil);

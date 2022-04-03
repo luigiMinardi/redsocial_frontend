@@ -10,6 +10,7 @@ import './Siguiendo.css';
 import Margin from '../../Components/Margin/Margin';
 import Header from '../../Components/Header/Header';
 import { baseURL } from '../../utiles';
+import { DATOS_PERFIL } from '../../redux/actions';
 
 
 
@@ -48,6 +49,12 @@ const Siguiendo = (props) => {
             console.log(error);
         }
     };
+
+    const verPerfil = async (id) => {
+        await props.dispatch({type: DATOS_PERFIL, payload: id});
+        navigate('/perfil');
+    }
+
     if (siguiendo[0]?._id !== undefined) {
         return (
             <div className='paginaSiguiendo'>
@@ -65,7 +72,7 @@ const Siguiendo = (props) => {
                                                     <img className='imagenSiguiendo' src={
                                                         usuario.foto === '' ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : usuario.foto
                                                     } />
-                                                    <button className='botonPerfil'>Ver Perfil</button>
+                                                    <button className='botonPerfil' onClick={()=> verPerfil(usuario._id)} >Ver Perfil</button>
                                                 </div>
                                                 <div className="cardSiguiendoDrc">
                                                 <p className='letras1'>{usuario.nombre}</p>
