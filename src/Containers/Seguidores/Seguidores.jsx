@@ -6,6 +6,7 @@ import './Seguidores.css';
 import Margin from '../../Components/Margin/Margin';
 import Header from '../../Components/Header/Header';
 import { baseURL } from '../../utiles';
+import { DATOS_PERFIL } from '../../redux/actions';
 
 
 
@@ -44,6 +45,11 @@ const Seguidores = (props) => {
         }
     };
 
+    const verPerfil = async (id) => {
+        await props.dispatch({ type: DATOS_PERFIL, payload: id });
+        navigate('/perfil');
+    }
+
     if (seguidores[0]?._id !== undefined) {
         return (
             <div className='paginaSeguidores'>
@@ -61,7 +67,7 @@ const Seguidores = (props) => {
                                                     <img className='imagenSeguidores' src={
                                                         usuario.foto === '' ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : usuario.foto
                                                     } />
-                                                    <button className='botonPerfil'>Ver Perfil</button>
+                                                    <button className='botonPerfil' onClick={() => verPerfil(usuario._id)}>Ver Perfil</button>
                                                 </div>
                                                 <div className="cardSeguidoresDrc">
                                                     <p className='letras1'>Nombre: {usuario.nombre}</p>

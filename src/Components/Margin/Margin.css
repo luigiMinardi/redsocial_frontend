@@ -4,11 +4,16 @@
     border-right: #611B5E solid 10px;
 
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
+    align-items: flex-start;
 
     height: 100%;
+}
+
+.margin {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 40rem;
 }
 
 .boton {

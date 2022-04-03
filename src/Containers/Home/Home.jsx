@@ -7,6 +7,8 @@ import './Home.css';
 import Margin from '../../Components/Margin/Margin';
 import Header from '../../Components/Header/Header';
 import { DATOS_HILO } from '../../redux/actions';
+import moment from 'moment';
+import 'moment/locale/es';
 
 const Home = (props) => {
     const [hilos, setHilos] = useState([]);
@@ -14,6 +16,7 @@ const Home = (props) => {
 
     useEffect(() => {
         traerHilos();
+        moment.locale('es');
     }, []);
 
     useEffect(() => {
@@ -22,18 +25,14 @@ const Home = (props) => {
     const traerHilos = async () => {
         try {
             const respuesta = await axios.get(`${baseURL}/hilos`);
-            console.log(respuesta.data)
-            setTimeout(() => {
-                setHilos(respuesta.data);
-            }, 1000);
+            setHilos(respuesta.data.reverse());
         } catch (error) {
             console.log(error);
         }
     };
 
-    const escogeHilo = (hilo) => {
-        console.log(hilo);
-        props.dispatch({ type: DATOS_HILO, payload: hilo });
+    const escogeHilo = (hiloId) => {
+        props.dispatch({ type: DATOS_HILO, payload: hiloId });
         // Redirigimos a la pagina hilo con navigate al Pulsar sobre un hilo en concreto.
         navigate("/hilo");
     };
@@ -52,13 +51,13 @@ const Home = (props) => {
                                         <div className="postCabezaHome">
                                             <div className="nombreUsuarioHome">
                                                 <img className='imagenUsuarioHome' src={
-                                                    hilo.usuario.foto === '' ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : hilo.usuario.foto
+                                                    hilo.usuario.foto === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : hilo.usuario.foto
                                                 } />
                                                 <p>{hilo.usuario.nombre} {hilo.usuario.apellidos}</p>
                                             </div>
-                                            <div className="fechaPost"><p>Fecha : {hilo.fecha}</p></div>
+                                            <div className="fechaPost"><p>Fecha : {moment(hilo.fecha).fromNow()}</p></div>
                                         </div>
-                                        <div className='contenidoPostHome' onClick={() => escogeHilo(hilo)}>
+                                        <div className='contenidoPostHome' onClick={() => escogeHilo(hilo._id)}>
                                             <p className='tituloHiloHome'>{hilo.titulo}</p>
                                             <p className='cuerpoHiloHome'>{hilo.cuerpo}</p>
                                         </div>
@@ -78,7 +77,7 @@ const Home = (props) => {
         return (
             <div className='paginaHome'>
                 <Header />
-                <div className="contenidoHome">
+                <div id="malo" className="contenidoHome">
                     <Margin />
                     <div className='cuerpoHome'>
                         <div className="espinner"></div>

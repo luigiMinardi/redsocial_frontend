@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { CREDENCIALES, MODIFICAR_HILO } from '../../redux/actions';
+import { CREDENCIALES, DATOS_HILO, MODIFICAR_HILO } from '../../redux/actions';
 import { baseURL } from '../../utiles';
 import './EditarHilo.css';
 import Margin from '../../Components/Margin/Margin';
@@ -13,17 +13,14 @@ const EditarHilo = (props) => {
 
     let navigate = useNavigate();
 
-    const [datosUsuario, setDatosUsuario] = useState({
-        nombre: props.credenciales.usuario.nombre,
-        apellidos: props.credenciales.usuario.apellidos,
-        ciudad: props.credenciales.usuario.ciudad,
-        titulo: props.datosHilo.usuario.titulo,
-        cuerpo: props.datosHilo.usuario.cuerpo,
-    })
+    const [datosHilo, setDatosHilo] = useState({
+        titulo: undefined,
+        cuerpo: undefined,
+    });
 
     const rellenarDatos = (e) => {
-        setDatosUsuario({
-            ...datosUsuario,
+        setDatosHilo({
+            ...datosHilo,
             [e.target.name]: e.target.value
         })
     };
@@ -36,29 +33,26 @@ const EditarHilo = (props) => {
 
     const actualizaHilo = async () => {
         let body = {
-            id: props.credenciales.usuario.id,
-            nombre: props.credenciales.nombre,
-            apellidos: props.credenciales.apellidos,
-            ciudad: props.credenciales.ciudad,
-            titulo: datosUsuario.titulo,
-            cuerpo: datosUsuario.cuerpo,
+            titulo: datosHilo.titulo,
+            cuerpo: datosHilo.cuerpo,
+            fecha: Date.now()
         }
-        console.log("papayote", body)
         let config = {
             headers: { Authorization: `Bearer ${props.credenciales.token}` }
         };
         try {
             // Actualizamos los datos de Usuario en nuestra base de datos.
-            let res = await axios.patch(`${baseURL}/hilos/${props.credenciales.usuario.id}`, body, config);
+            let res = await axios.patch(`${baseURL}/hilos/${props.datosHilo._id}`, body, config);
             if (res) {
                 // Guardamos los datos en Redux.
-                props.dispatch({ type: MODIFICAR_HILO, payload: datosUsuario });
+                props.dispatch({ type: MODIFICAR_HILO, payload: datosHilo });
+                props.dispatch({ type: DATOS_HILO, payload: props.datosHilo._id });
             }
+            navigate('/hilo');
         } catch (error) {
             console.log(error)
         }
     }
-
     return (
         <div className='paginaEditarHilo'>
             <Header />
@@ -69,7 +63,7 @@ const EditarHilo = (props) => {
                         <div className="postCabezaEditarHilo"></div>
                         <div className='contenidoPostEditarHilo'>
                             <input className='inputEditarHilo' type="text" name="titulo" id="titulo" title="titulo" placeholder="Titulo del Post" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
-                            <input className='inputEditarHilo' type="cuerpo" name="cuerpo" id="cuerpo" title="cuerpo" placeholder="Descripción del Post" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
+                            <input className='inputEditarHilo' type="text" name="cuerpo" id="cuerpo" title="cuerpo" placeholder="Descripción del Post" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
                             <div className="botonEditarHilo" onClick={() => actualizaHilo()}>
                                 Modificar Publicación
                             </div>
