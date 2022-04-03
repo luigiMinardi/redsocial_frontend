@@ -54,17 +54,17 @@ const Likes = (props) => {
                                     return (
                                         <div className="postLikes" key={index}>
                                             <div className="cardLikes">
+                                                <div className='cardLikescentro'>
+                                                    <h1 className='letras'>Titulo Post: {usuario.titulo}</h1>
+                                                </div>
                                                 <div className='cardLikesIzq'>
-                                                    <img className='imagenLikes' src={
+                                                    <img className='imagenUsuarioHome' src={
                                                         usuario.usuario.foto === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : usuario.usuario.foto
-                                                    } />
-                                                    <button className='botonPerfil'>Ver Post</button>
+                                                    } /><p className='letras1'>{usuario.usuario.nombre} {usuario?.usuario.apellidos}</p>
                                                 </div>
                                                 <div className="cardLikesDrc">
-                                                    <p className='letras1'>Titulo del Post: {usuario.titulo}</p>
-                                                    <p className='letras1'>Nombre: {usuario.usuario.nombre} {usuario?.usuario.apellidos}</p>
-                                                    <p className='letras1'>Ciudad: {usuario.ciudad !== '' ? 'Secreto' : usuario.ciudad}</p>
                                                     <p className='letras1'>Fecha del Post: {usuario?.fecha}</p>
+                                                    <button className='botonLikes'>Ver Post</button>
                                                 </div>
                                             </div>
                                         </div>

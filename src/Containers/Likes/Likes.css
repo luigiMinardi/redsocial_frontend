@@ -31,13 +31,17 @@
     align-content: flex-start;
 }
 
+.fotoPostLikes::-webkit-scrollbar {
+    display: none;
+}
+
 .cardLikes {
     height: 15em;
     width: 40em;
     background-color: #870b2adf;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    flex-direction: column;
     border-radius: 2em;
     padding: .2em;
     margin: .7em;
@@ -53,10 +57,14 @@
 
 .cardLikesIzq {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 1em;
+}
+
+.cardLikesDrc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .imagenLikes {
@@ -73,4 +81,21 @@
     background-image:url(/img/espinner.gif);
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.botonLikes {
+    height: 3em;
+    width: 7em;
+    background-color: rgba(196, 196, 196, 1);
+    border: 2px solid #611B5E;
+    border-radius: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botonLikes:hover{
+    background-color: #ad8cad;
+    font-weight: bolder;
+    cursor: pointer;
 }
