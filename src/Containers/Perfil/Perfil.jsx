@@ -42,7 +42,6 @@ const Perfil = (props) => {
             console.log(error)
         }
     }
-    console.log(props.perfil)
     if (datosUsuario._id !== '') {
         return (
             <div className='paginaPerfil'>
