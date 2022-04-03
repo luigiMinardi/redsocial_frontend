@@ -35,7 +35,7 @@ const Margin = (props) => {
                 <div className='margin'>
                     <a className='boton' onClick={() => navigate('/')}>Foro</a>
                     <a className='boton' onClick={() => navigate('/publicaciones')}>Mis Publicaciones</a>
-                    <a className='boton' onClick={() => navigate('/usuarios')}>Amigos</a>
+                    <a className='boton' onClick={() => navigate('/siguiendo')}>Amigos</a>
                     <a className='boton' onClick={async () => {
                         await props.dispatch({ type: DATOS_PERFIL, payload: props.credenciales.usuario._id })
                         navigate('/perfil')
