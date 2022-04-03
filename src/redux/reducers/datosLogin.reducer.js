@@ -1,12 +1,9 @@
-
-import { LOGIN, LOGOUT, MODIFICAR_CREDENCIALES } from '../types';
-
+import { LOGIN, LOGOUT, MODIFICAR_CREDENCIALES } from '../actions';
 
 const initialState = {
     token: '',
     usuario: {}
 };
-
 
 // const datosLoginReducer = (state = initialState, action) => {
 const datosLoginReducer = (state = initialState, action) => {
@@ -17,7 +14,7 @@ const datosLoginReducer = (state = initialState, action) => {
         //BORRAMOS DATOS GUARDADOS DE USUARIO LOGUEADO Y DEJAMOS VALORES VACIOS
         case LOGOUT:
             return initialState;
-        // //MODIFICAMOS LOS DATOS QUE TENEMOS GUARDADOS EN ESTE ESTADO CON LOS VALORES QUE METAMOS POR INPUT EN EditarPerfil.js
+        // MODIFICAMOS LOS DATOS QUE TENEMOS GUARDADOS EN ESTE ESTADO CON LOS VALORES QUE METAMOS POR INPUT EN EditarPerfil.js
         case MODIFICAR_CREDENCIALES:
             return { ...state, usuario: action.payload };
         default:

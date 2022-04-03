@@ -5,7 +5,7 @@ import axios from 'axios';
 import { baseURL } from '../../utiles';
 // Redux
 import { connect } from 'react-redux';
-import { MODIFICAR_CREDENCIALES } from '../../redux/types';
+import { MODIFICAR_CREDENCIALES } from '../../redux/actions';
 
 import './EditarPerfil.css';
 import Margin from '../../Components/Margin/Margin';

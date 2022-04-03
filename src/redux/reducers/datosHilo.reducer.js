@@ -1,4 +1,4 @@
-import { DATOS_HILO , MODIFICAR_HILO } from '../types';
+import { DATOS_HILO , MODIFICAR_HILO } from '../actions';
 
 const initialState = {
     publicacion: {},

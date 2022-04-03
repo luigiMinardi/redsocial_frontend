@@ -6,7 +6,7 @@ import { baseURL } from '../../utiles';
 import './Home.css';
 import Margin from '../../Components/Margin/Margin';
 import Header from '../../Components/Header/Header';
-import { DATOS_HILO } from '../../redux/types';
+import { DATOS_HILO } from '../../redux/actions';
 
 const Home = (props) => {
     const [hilos, setHilos] = useState([]);

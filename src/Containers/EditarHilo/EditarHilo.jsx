@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { CREDENCIALES, MODIFICAR_HILO } from '../../redux/types';
+import { CREDENCIALES, MODIFICAR_HILO } from '../../redux/actions';
 import { baseURL } from '../../utiles';
 import './EditarHilo.css';
 import Margin from '../../Components/Margin/Margin';

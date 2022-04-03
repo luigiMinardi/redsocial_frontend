@@ -5,13 +5,11 @@ import axios from 'axios';
 import { baseURL } from '../../utiles';
 // Redux
 import { connect } from 'react-redux';
-import { MODIFICAR_CREDENCIALES } from '../../redux/types';
+import { MODIFICAR_CREDENCIALES } from '../../redux/actions';
 
 import './Perfil.css';
 import Margin from '../../Components/Margin/Margin';
 import Header from '../../Components/Header/Header';
-
-
 
 const Perfil = (props) => {
     let navigate = useNavigate();
@@ -155,8 +153,8 @@ const Perfil = (props) => {
             </div>
         )
     }
-
 }
+
 export default connect((state) => ({
     credenciales: state.credenciales
 }))(Perfil);

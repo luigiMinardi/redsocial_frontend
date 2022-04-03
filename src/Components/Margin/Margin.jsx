@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './Margin.css';
 // Redux
 import { connect } from 'react-redux';
-import { LOGOUT } from '../../redux/types';
+import { LOGOUT } from '../../redux/actions';
 
 
 const Margin = (props) => {
