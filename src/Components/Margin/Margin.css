@@ -1,13 +1,14 @@
 .designMargin {
-    height: 100%;
-    width: 12em;
     background-color: #870B29;
     color: white;
+    border-right: #611B5E solid 10px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    border-right: #611B5E solid 10px;
+
+    height: 100%;
 }
 
 .boton {
