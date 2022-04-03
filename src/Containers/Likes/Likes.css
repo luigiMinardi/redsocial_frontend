@@ -1,0 +1,76 @@
+.paginaLikes {
+    display: flex;
+    flex-direction: column;
+    background-color: #2B2B31;
+    height: 100vh;
+}
+
+.contenidoLikes {
+    display: flex;
+    height: 100%;
+}
+
+.cuerpoLikes {
+    background-color: #2B2B31;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.foroPostLikes {
+    border-radius: 3em 0em 0em 2em;
+    background-color: rgba(196, 196, 196, 1);
+    height: 65em;
+    width: 85em;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.cardLikes {
+    height: 15em;
+    width: 40em;
+    background-color: #870b2adf;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 2em;
+    padding: .2em;
+    margin: .7em;
+}
+
+.letras1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.5em;
+    color: rgba(196, 196, 196, 1);
+    text-align: center;
+    margin-top: 1em;
+}
+
+.cardLikesIzq {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.imagenLikes {
+    height: 10em;
+    width: 10em;
+    border-radius: 50%;
+    border: 2px solid #611B5E;
+    margin-top: 1em;
+}
+
+.espinner {
+    height: 15em;
+    width: 15em;
+    background-image:url(/img/espinner.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
