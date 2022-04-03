@@ -6,6 +6,7 @@ import './Likes.css';
 import Margin from '../../Components/Margin/Margin';
 import Header from '../../Components/Header/Header';
 import { baseURL } from '../../utiles';
+import { DATOS_HILO } from '../../redux/actions';
 
 const Likes = (props) => {
     const [likes, setlikes] = useState([]);
@@ -41,6 +42,13 @@ const Likes = (props) => {
         }
     };
 
+    const escogeHilo = (hilo) => {
+        console.log(hilo);
+        props.dispatch({ type: DATOS_HILO, payload: hilo });
+        // Redirigimos a la pagina hilo con navigate al Pulsar sobre un hilo en concreto.
+        navigate("/hilo");
+    };
+
     if (likes[0]?._id !== undefined) {
         return (
             <div className='paginaLikes'>
@@ -50,21 +58,21 @@ const Likes = (props) => {
                     <div className='cuerpoLikes'>
                         <div className="foroPostLikes">
                             {
-                                likes.map((usuario, index) => {
+                                likes.map((like, index) => {
                                     return (
                                         <div className="postLikes" key={index}>
                                             <div className="cardLikes">
                                                 <div className='cardLikescentro'>
-                                                    <h1 className='letras'>Titulo Post: {usuario.titulo}</h1>
+                                                    <h1 className='letras'>Titulo Post: {like.titulo}</h1>
                                                 </div>
                                                 <div className='cardLikesIzq'>
                                                     <img className='imagenUsuarioHome' src={
-                                                        usuario.usuario.foto === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : usuario.usuario.foto
-                                                    } /><p className='letras1'>{usuario.usuario.nombre} {usuario?.usuario.apellidos}</p>
+                                                        like.usuario.foto === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : like.usuario.foto
+                                                    } /><p className='letras1'>{like.usuario.nombre} {like?.usuario.apellidos}</p>
                                                 </div>
                                                 <div className="cardLikesDrc">
-                                                    <p className='letras1'>Fecha del Post: {usuario?.fecha}</p>
-                                                    <button className='botonLikes'>Ver Post</button>
+                                                    <p className='letras1'>Fecha del Post: {like?.fecha}</p>
+                                                    <button className='botonLikes'onClick={() => escogeHilo(like._id)}>Ver Post</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -94,19 +102,6 @@ const Likes = (props) => {
 }
 
 export default connect((state) => ({
-    credenciales: state.credenciales
+    credenciales: state.credenciales,
+    datosHilo: state.datosHilo
 }))(Likes);
-
-
-// "_id": otraResConOtroUsuario.body._id,
-// "likes": [
-//     {
-//         "_id": resHiloBase.body[0]._id,
-//         "fecha": "2022-03-03T07:32:37.341Z",
-//         "titulo": "Test",
-//         "usuario": {
-//             "_id": resBase.body._id,
-//             "apellidos": "Testing",
-//             "foto": "http://blank.page",
-//             "nombre": "Test",
-//         },
