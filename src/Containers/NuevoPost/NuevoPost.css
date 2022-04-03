@@ -1,15 +1,16 @@
 .paginaNuevoPost {
     display: flex;
     flex-direction: column;
-    background-color: #2B2B31;
-    height: 100vh;
-    /* width: 100vw; */
+    background-color: red;
+    height: 76.9em;
+    width: 100%;
 }
 
 .contenidoNuevoPost {
     background-color: aqua;
     display: flex;
     height: 100%;
+    width: 100%;
 }
 
 .cuerpoNuevoPost {

@@ -73,9 +73,7 @@ const Home = () => {
                 <div className="contenidoHome">
                     <Margin />
                     <div className='cuerpoHome'>
-                        {/* <div className="foroPostHome"> */}
                         <div className="espinner"></div>
-                        {/* </div> */}
                     </div>
                 </div>
             </div>
@@ -83,26 +81,4 @@ const Home = () => {
     };
 }
 
-
-
-
 export default Home;
-
-
-// {
-//     hilos.map((hilo, index) => {
-//         return (
-//             <div className="postHome" key={index}>
-//                 <p>{hilo.titulo}</p>
-//                 <p>{hilo.cuerpo}</p>
-//                 <p>{hilo.fecha}</p>
-//                 <p>{hilo.usuario.nombre}</p>
-//                 <p>{hilo.usuario.apellidos}</p>
-//                 <img className='imagenUsuario' src={
-//                     hilo.usuario.foto === '' ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : hilo.usuario.foto
-//                 } />
-//             </div>
-//         )
-//     }
-//     )
-// }
