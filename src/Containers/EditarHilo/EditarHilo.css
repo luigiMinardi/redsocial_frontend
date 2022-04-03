@@ -1,0 +1,86 @@
+.paginaEditarHilo {
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    height: 76.9em;
+    width: 100%;
+}
+
+.contenidoEditarHilo {
+    background-color: aqua;
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.cuerpoEditarHilo {
+    background-color: #2B2B31;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    overflow-y: scroll;
+}
+
+.cuerpoEditarHilo::-webkit-scrollbar {
+    display: none;
+}
+
+.foroPostEditarHilo {
+    border-radius: 3em 3em 2em 2em;
+    background-color: rgba(196, 196, 196, 1);
+    width: 65em;
+    margin-bottom: 2em;
+}
+
+
+.postCabezaEditarHilo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #611B5E;
+    height: 3em;
+    width: 100%;
+    border-radius: 2em 2em 0 0;
+}
+
+.contenidoPostEditarHilo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputEditarHilo {
+    all:unset;
+    text-align: left;
+    border: 2px solid #611B5E;
+    border-bottom: 2px 2px;
+    padding: 0.50em;
+    width: 80%;
+    margin: 0.5em;
+    margin-top: 1.25em;
+    background-color: #555a402d;
+}
+
+.botonEditarHilo{
+    height: 3em;
+    width: 10em;
+    background-color: #555a402d;
+    color: black;
+    border: 2px solid #611B5E;
+    border-radius: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1em;
+}
+
+.botonEditarHilo:hover {
+    background-color: rgba(196, 196, 196, 1);
+    font-weight: bolder;
+    cursor: pointer;
+}

@@ -12,6 +12,7 @@ import Siguiendo from './Containers/Siguiendo/Siguiendo';
 import Seguidores from './Containers/Seguidores/Seguidores';
 import NuevoPost from './Containers/NuevoPost/NuevoPost';
 import Hilo from './Containers/Hilo/Hilo';
+import EditarHilo from './Containers/EditarHilo/EditarHilo';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <Route path="/seguidores" element={<Seguidores/>} />
           <Route path="/nuevopost" element={<NuevoPost/>} />
           <Route path="/hilo" element={<Hilo/>} />
+          <Route path="/editar-hilo" element={<EditarHilo/>} />
         </Routes>
       </BrowserRouter>
     </div>
