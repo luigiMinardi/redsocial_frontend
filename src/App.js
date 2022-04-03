@@ -11,6 +11,7 @@ import Usuarios from './Containers/Usuarios/Usuarios';
 import Siguiendo from './Containers/Siguiendo/Siguiendo';
 import Seguidores from './Containers/Seguidores/Seguidores';
 import NuevoPost from './Containers/NuevoPost/NuevoPost';
+import Hilo from './Containers/Hilo/Hilo';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/siguiendo" element={<Siguiendo/>} />
           <Route path="/seguidores" element={<Seguidores/>} />
           <Route path="/nuevopost" element={<NuevoPost/>} />
+          <Route path="/hilo" element={<Hilo/>} />
         </Routes>
       </BrowserRouter>
     </div>
