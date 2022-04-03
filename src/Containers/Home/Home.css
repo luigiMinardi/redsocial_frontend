@@ -38,9 +38,9 @@
     margin-bottom: 2em;
 }
 
-/* .foroPostHome:nth-of-type(1){
+.foroPostHome:nth-of-type(1){
     margin-top: 43em;
-} */
+}
 
 .postCabezaHome {
     display: flex;
@@ -91,12 +91,12 @@
     background-color: #611b5d4f;
 }
 
-.tituloHilo{
+.tituloHiloHome{
     font-size: 1.5em;
     font-weight: bold;
 }
 
-.cuerpoHilo{
+.cuerpoHiloHome {
     font-size: 2em;
 }
 
