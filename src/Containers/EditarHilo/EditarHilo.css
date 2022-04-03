@@ -1,4 +1,4 @@
-.paginaHilo {
+.paginaEditarHilo {
     display: flex;
     flex-direction: column;
     background-color: red;
@@ -6,14 +6,14 @@
     width: 100%;
 }
 
-.contenidoHilo {
+.contenidoEditarHilo {
     background-color: aqua;
     display: flex;
     height: 100%;
     width: 100%;
 }
 
-.cuerpoHilo {
+.cuerpoEditarHilo {
     background-color: #2B2B31;
     height: 100%;
     width: 100%;
@@ -25,11 +25,11 @@
     overflow-y: scroll;
 }
 
-.cuerpoHilo::-webkit-scrollbar {
+.cuerpoEditarHilo::-webkit-scrollbar {
     display: none;
 }
 
-.foroPostHilo {
+.foroPostEditarHilo {
     border-radius: 3em 3em 2em 2em;
     background-color: rgba(196, 196, 196, 1);
     width: 65em;
@@ -37,7 +37,7 @@
 }
 
 
-.postCabezaHilo {
+.postCabezaEditarHilo {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -47,14 +47,14 @@
     border-radius: 2em 2em 0 0;
 }
 
-.contenidoPostHilo {
+.contenidoPostEditarHilo {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.inputHilo {
+.inputEditarHilo {
     all:unset;
     text-align: left;
     border: 2px solid #611B5E;
@@ -66,7 +66,7 @@
     background-color: #555a402d;
 }
 
-.botonHilo{
+.botonEditarHilo{
     height: 3em;
     width: 10em;
     background-color: #555a402d;
@@ -79,7 +79,7 @@
     margin: 1em;
 }
 
-.botonHilo:hover {
+.botonEditarHilo:hover {
     background-color: rgba(196, 196, 196, 1);
     font-weight: bolder;
     cursor: pointer;

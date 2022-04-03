@@ -9,7 +9,7 @@ import Header from '../../Components/Header/Header';
 
 //REDUX...
 import { connect } from 'react-redux';
-import { LOGIN } from '../../redux/types';
+import { LOGIN } from '../../redux/actions';
 
 
 

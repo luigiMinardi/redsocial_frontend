@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './Margin.css';
 // Redux
 import { connect } from 'react-redux';
-import { LOGOUT } from '../../redux/types';
+import { DATOS_PERFIL, LOGOUT } from '../../redux/actions';
 
 
 const Margin = (props) => {
@@ -33,9 +33,13 @@ const Margin = (props) => {
                 <a className='boton' onClick={() => navigate('/')}>Foro</a>
                 <a className='boton' onClick={() => navigate('/publicaciones')}>Mis Publicaciones</a>
                 <a className='boton' onClick={() => navigate('/usuarios')}>Amigos</a>
-                <a className='boton' onClick={() => navigate('/perfil')}>Mi Perfil</a>
+                <a className='boton' onClick={async () => {
+                    await props.dispatch({ type: DATOS_PERFIL, payload: props.credenciales.usuario._id })
+                    navigate('/perfil')
+                }}
+                >Mi Perfil</a>
                 <a className='boton' onClick={() => logOut()}>Cerrar Session</a>
-            </div>
+            </div >
         )
     }
 }

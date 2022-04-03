@@ -5,26 +5,17 @@ import axios from 'axios';
 import { baseURL } from '../../utiles';
 // Redux
 import { connect } from 'react-redux';
-import { MODIFICAR_CREDENCIALES } from '../../redux/types';
+import { MODIFICAR_CREDENCIALES } from '../../redux/actions';
 
 import './Perfil.css';
 import Margin from '../../Components/Margin/Margin';
 import Header from '../../Components/Header/Header';
 
-
-
 const Perfil = (props) => {
     let navigate = useNavigate();
 
     // Hooks.
-    const [datosUsuario, setDatosUsuario] = useState({
-        nombre: props.credenciales.usuario.nombre,
-        edad: props.credenciales.usuario.edad,
-        apellidos: props.credenciales.usuario.apellidos,
-        telefono: props.credenciales.usuario.telefono,
-        ciudad: props.credenciales.usuario.ciudad,
-        correo: props.credenciales.usuario.correo,
-    })
+    const [datosUsuario, setDatosUsuario] = useState({ _id: '' });
 
     useEffect(() => {
         muestraUsuario();
@@ -36,54 +27,79 @@ const Perfil = (props) => {
         };
     })
 
+    useEffect(() => {
+        muestraUsuario();
+    }, [props.perfil._id])
+
     const muestraUsuario = async () => {
         let config = {
             headers: { Authorization: `Bearer ${props.credenciales.token}` }
         };
         try {
-            let res = await axios.get(`${baseURL}usuarios/${props.credenciales.usuario.id}`, config);
+            let res = await axios.get(`${baseURL}/usuarios/${props.perfil._id}`, config);
             setDatosUsuario(res.data)
         } catch (error) {
             console.log(error)
         }
     }
-console.log(datosUsuario);
-console.log(props.credenciales);
-    if (datosUsuario.nombre !== '') {
+    console.log(props.perfil)
+    if (datosUsuario._id !== '') {
         return (
-            <div className='designPerfil2'>
+            <div className='paginaPerfil'>
                 <Header />
-                <div className="contenidoPerfil2">
+                <div className="cuerpoPerfil">
                     <Margin />
-                    <div className='cuerpoPerfil2'>
-                        <div className='usuarioCaja'>
-                            <div className="sobreYo">
-                                <div className="nombreFila">{datosUsuario.nombre}</div>
-                                <div className="contenidoFila">
-                                    <div className="imagenUsuario"></div>
-                                    <div className="edadCiudad">
-                                        <div className="ciudadUsuario">{datosUsuario.ciudad}</div>
-                                        <div className="edadUsuario">{datosUsuario.edad}</div>
-                                    </div>
-                                </div>
-                                 {/* <div className="informacionUsuario">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</div> */}
-                                        <div className="correo">{datosUsuario.correo}</div>
-                                        <div className="telefono">{datosUsuario.telefono}</div>
+                    <div className='contenidoPerfil'>
+                        <div className="datosUsuario">
+                            <h1 className='nombreUsuario'>{datosUsuario.nombre} {datosUsuario.apellidos}</h1>
 
-                                <div className="butonesFondo">
-                                    <div className="botonPerfil" onClick={() => navigate('/editar-perfil')}> Editar Perfil</div>
-                                    {props.credenciales.usuario._id === datosUsuario._id
-                                        ? <div className="botonSeguir"> Seguir!</div>
-                                        : <> </>}
-
-
-                                </div>
-
+                            <img className='imagenUsuario' src={
+                                datosUsuario.foto !== '' ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : datosUsuario.foto
+                            } />
+                            <div className='flex'>
+                                <div className="camposUsuario">Ciudad:&nbsp;</div>
+                                <div>{datosUsuario.ciudad !== '' ? 'Secreto' : datosUsuario.ciudad}</div>
                             </div>
-                            <div className="torreDatos">
-                                <div className="posts" onClick={() => navigate('/publicaciones')}>Posts: </div>
-                                <div className="siguiendo" onClick={() => navigate('/siguiendo')}>Siguiendo: </div>
-                                <div className="seguidores" onClick={() => navigate('/seguidores')}>Seguidores: </div>
+                            <div className='flex'>
+                                <div className="camposUsuario">Edad:&nbsp;</div>
+                                <div>{new Date(Date.now() - new Date(datosUsuario.edad).getTime()).getUTCFullYear() - 1970}</div>
+                            </div>
+                            <div className='flex'>
+                                <div className="camposUsuario">Correo:&nbsp;</div>
+                                <div>{datosUsuario.correo}</div>
+                            </div>
+                            <div className='flex'>
+                                <div className="camposUsuario">Telefono:&nbsp;</div>
+                                <div>{datosUsuario.telefono !== '' ? 'Secreto' : datosUsuario.telefono}</div>
+                            </div>
+                            <div className='flex'>
+                                <div className="camposUsuario">Data de nacimiento:&nbsp;</div>
+                                <div>{new Date(datosUsuario.edad).toLocaleDateString()}</div>
+                            </div>
+
+                            <div className="botonesPerfil">
+                                <div className="botonPerfil" onClick={() => navigate('/editar-perfil')}> Editar Perfil</div>
+                                {props.credenciales._id === datosUsuario._id
+                                    ? <div className="botonPerfil"> Seguir!</div>
+                                    : <> </>}
+                            </div>
+                        </div>
+                        <div className="datosInteracionesUsuario">
+                            <div className="interacionesUsuario" onClick={() => navigate('/publicaciones')}>
+                                <div className="camposUsuario">Posts:</div>
+                                <div className='datosCamposUsuario'>{datosUsuario.publicaciones ? datosUsuario.publicaciones.length : 0}</div>
+                            </div>
+                            <div className="interacionesUsuario" onClick={() => navigate('/siguiendo')}>
+                                <div className="camposUsuario">Siguiendo:</div>
+                                <div className='datosCamposUsuario'>{datosUsuario.siguiendo ? datosUsuario.siguiendo.length : 0}</div>
+                            </div>
+                            <div className="interacionesUsuario" onClick={() => navigate('/seguidores')}>
+                                <div className="camposUsuario">Seguidores:</div>
+                                <div className='datosCamposUsuario'>{datosUsuario.seguidores ? datosUsuario.seguidores.length : 0}</div>
+                            </div>
+                            <div className="interacionesUsuario" onClick={() => navigate('/likes')}>
+                                <div className="camposUsuario">Likes:</div>
+                                <div className='datosCamposUsuario'>{datosUsuario.likes ? datosUsuario.likes.length : 0}</div>
                             </div>
                         </div>
                     </div>
@@ -92,27 +108,48 @@ console.log(props.credenciales);
         )
     } else {
         return (
-            <div className='designPerfil2'>
+            <div className='paginaPerfil'>
                 <Header />
-                <div className="contenidoPerfil2">
+                <div className="cuerpoPerfil">
                     <Margin />
-                    <div className='cuerpoPerfil2'>
-                        <div className='usuarioCaja'>
-                            <div className="sobreYo">
-                                <div className="nombreFila">Callum Joseph Iain Gordon</div>
-                                <div className="contenidoFila">
-                                    <div className="imagenUsuario"></div>
-                                    <div className="edadCiudad">
-                                        <div className="ciudadUsuario">Ciudad:</div>
-                                        <div className="edadUsuario">Edad:</div>
-                                    </div>
-                                </div>
-                                <div className="informacionUsuario">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</div>
+                    <div className='contenidoPerfil'>
+                        <div className="datosUsuario">
+                            <h1 className='nombreUsuario'>404 Usuario no encontrado</h1>
+                            <img className='imagenUsuario' src={
+                                datosUsuario.foto !== '' ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : datosUsuario.foto
+                            } />
+                            <div className='flex'>
+                                <div className="camposUsuario">Ciudad:</div>
                             </div>
-                            <div className="torreDatos">
-                                <div className="posts">Posts: </div>
-                                <div className="siguiendo">Siguiendo: </div>
-                                <div className="seguidores">Seguidores: </div>
+                            <div className='flex'>
+                                <div className="camposUsuario">Edad:</div>
+                            </div>
+                            <div className='flex'>
+                                <div className="camposUsuario">Correo:</div>
+                            </div>
+                            <div className='flex'>
+                                <div className="camposUsuario">Telefono:</div>
+                            </div>
+                            <div className='flex'>
+                                <div className="camposUsuario">Data de nacimiento:</div>
+                            </div>
+                        </div>
+                        <div className="datosInteracionesUsuario">
+                            <div className="interacionesUsuario" onClick={() => navigate('/publicaciones')}>
+                                <div className="camposUsuario">Posts:</div>
+                                <div className='datosCamposUsuario'>0</div>
+                            </div>
+                            <div className="interacionesUsuario" onClick={() => navigate('/siguiendo')}>
+                                <div className="camposUsuario">Siguiendo:</div>
+                                <div className='datosCamposUsuario'>0</div>
+                            </div>
+                            <div className="interacionesUsuario" onClick={() => navigate('/seguidores')}>
+                                <div className="camposUsuario">Seguidores:</div>
+                                <div className='datosCamposUsuario'>0</div>
+                            </div>
+                            <div className="interacionesUsuario" onClick={() => navigate('/likes')}>
+                                <div className="camposUsuario">Likes:</div>
+                                <div className='datosCamposUsuario'>0</div>
                             </div>
                         </div>
                     </div>
@@ -120,8 +157,9 @@ console.log(props.credenciales);
             </div>
         )
     }
-
 }
+
 export default connect((state) => ({
-    credenciales: state.credenciales
+    credenciales: state.credenciales,
+    perfil: state.datosPerfil
 }))(Perfil);
