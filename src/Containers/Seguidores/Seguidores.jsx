@@ -37,9 +37,7 @@ const Seguidores = (props) => {
         try {
             const respuesta = await axios.get(`${baseURL}/usuarios/${props.perfil._id}/seguidores`, config);
             console.log(respuesta.data)
-            setTimeout(() => {
-                setSeguidores(respuesta.data.seguidores);
-            }, 1000);
+            setSeguidores(respuesta.data.seguidores);
         } catch (error) {
             console.log(error);
         }
@@ -65,7 +63,7 @@ const Seguidores = (props) => {
                                             <div className="cardSeguidores">
                                                 <div className='cardSeguidoresIzq'>
                                                     <img className='imagenSeguidores' src={
-                                                        usuario.foto === '' ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : usuario.foto
+                                                        usuario.foto === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : usuario.foto
                                                     } />
                                                     <button className='botonPerfil' onClick={() => verPerfil(usuario._id)}>Ver Perfil</button>
                                                 </div>

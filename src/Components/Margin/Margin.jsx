@@ -12,9 +12,7 @@ const Margin = (props) => {
     const logOut = () => {
         //Borrar de RDX las credenciales
         props.dispatch({ type: LOGOUT });
-        setTimeout(() => {
-            navigate("/");
-        }, 500);
+        navigate("/");
     }
 
     if (props.credenciales.token === '') {

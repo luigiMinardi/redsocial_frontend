@@ -36,12 +36,10 @@ const Publicaciones = (props) => {
     const traerPublicaciones = async () => {
         try {
             const respuesta = await axios.get(`${baseURL}/usuarios/${props.usuario._id}/publicaciones`, config);
-            setTimeout(() => {
-                if (JSON.stringify(respuesta.data.publicaciones.reverse()) !== JSON.stringify(publicaciones)) {
-                    // console.log(JSON.stringify(respuesta.data.publicaciones.reverse()) === JSON.stringify(publicaciones));
-                    setPublicaciones(respuesta.data.publicaciones.reverse());
-                }
-            }, 1000);
+            if (JSON.stringify(respuesta.data.publicaciones.reverse()) !== JSON.stringify(publicaciones)) {
+                // console.log(JSON.stringify(respuesta.data.publicaciones.reverse()) === JSON.stringify(publicaciones));
+                setPublicaciones(respuesta.data.publicaciones.reverse());
+            }
         } catch (error) {
             console.log(error);
         }

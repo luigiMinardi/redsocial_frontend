@@ -20,20 +20,24 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home/>}/>
+          <Route path="/" element={<Home />} />
+          <Route path="/hilo" element={<Hilo />} />
+          <Route path="/nuevo-post" element={<NuevoPost />} />
+          <Route path="/editar-hilo" element={<EditarHilo />} />
+
+          <Route path="/registrar" element={<Registrar />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/usuarios" element={<Usuarios />} /> {/*// TODO: Hacer que esa pagina tenga algo */}
+
+          <Route path="/seguidores" element={<Seguidores />} />
+          <Route path="/siguiendo" element={<Siguiendo />} />
+          <Route path="/publicaciones" element={<Publicaciones />} />
+          <Route path="/likes" element={<Likes />} />
+
+          <Route path="/perfil" element={<Perfil />} />
           <Route path="/editar-perfil" element={<EditarPerfil />} />
-          <Route path="/registrar" element={<Registrar/>}/>
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/nosotros" element={<Nosotros/>} />
-          <Route path="/perfil" element={<Perfil/>} />
-          <Route path="/publicaciones" element={<Publicaciones/>} />
-          <Route path="/usuarios" element={<Usuarios/>} />
-          <Route path="/siguiendo" element={<Siguiendo/>} />
-          <Route path="/seguidores" element={<Seguidores/>} />
-          <Route path="/nuevopost" element={<NuevoPost/>} />
-          <Route path="/hilo" element={<Hilo/>} />
-          <Route path="/editar-hilo" element={<EditarHilo/>} />
-          <Route path="/likes" element={<Likes/>} />
+
+          <Route path="/nosotros" element={<Nosotros />} />
         </Routes>
       </BrowserRouter>
     </div>
