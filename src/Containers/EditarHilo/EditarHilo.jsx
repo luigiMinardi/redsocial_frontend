@@ -60,6 +60,21 @@ const EditarHilo = (props) => {
         }
     }
 
+    const borraHilo = async () => {
+        let config = {
+            headers: { Authorization: `Bearer ${props.credenciales.token}` }
+        };
+        try {
+            let res = await axios.delete(`${baseURL}/hilos/${props.datosHilo._id}`, config);
+            console.log(res.data)
+            if (res.status === 200) {
+                navigate('/');
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <div className='paginaEditarHilo'>
             <Header />
@@ -71,8 +86,13 @@ const EditarHilo = (props) => {
                         <div className='contenidoPostEditarHilo'>
                             <input className='inputEditarHilo' type="text" name="titulo" id="titulo" title="titulo" placeholder="Titulo del Post" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
                             <input className='inputEditarHilo' type="text" name="cuerpo" id="cuerpo" title="cuerpo" placeholder="Descripción del Post" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
-                            <div className="botonEditarHilo" onClick={() => actualizaHilo()}>
-                                Modificar Publicación
+                            <div className="botonesPostHilo">
+                                <div className="botonEditarHilo" onClick={() => actualizaHilo()}>
+                                    Modificar Publicación
+                                </div>
+                                <div className="botonEditarHilo" onClick={() => borraHilo()}>
+                                    Borrar Publicación
+                                </div>
                             </div>
                         </div>
                     </div>
