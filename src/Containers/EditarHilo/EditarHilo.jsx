@@ -35,7 +35,13 @@ const EditarHilo = (props) => {
         let body = {
             titulo: datosHilo.titulo,
             cuerpo: datosHilo.cuerpo,
-            fecha: Date.now()
+            fecha: Date.now(),
+            usuario: {
+                usuarioId: props.credenciales.usuario._id,
+                nombre: props.credenciales.usuario.nombre,
+                apellidos: props.credenciales.usuario.apellidos,
+                foto: props.credenciales.usuario.foto,
+            },
         }
         let config = {
             headers: { Authorization: `Bearer ${props.credenciales.token}` }
