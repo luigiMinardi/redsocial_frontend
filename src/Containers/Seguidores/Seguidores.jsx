@@ -35,7 +35,7 @@ const Seguidores = (props) => {
 
     const traerSeguidores = async () => {
         try {
-            const respuesta = await axios.get(`${baseURL}/usuarios/${props.credenciales.usuario._id}/seguidores`, config);
+            const respuesta = await axios.get(`${baseURL}/usuarios/${props.perfil._id}/seguidores`, config);
             console.log(respuesta.data)
             setTimeout(() => {
                 setSeguidores(respuesta.data.seguidores);
@@ -103,5 +103,6 @@ const Seguidores = (props) => {
 }
 
 export default connect((state) => ({
-    credenciales: state.credenciales
+    credenciales: state.credenciales,
+    perfil: state.datosPerfil
 }))(Seguidores);
