@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import './Perfil.css';
 import Margin from '../../Components/Margin/Margin';
 import Header from '../../Components/Header/Header';
-import { DATOS_PERFIL } from '../../redux/actions';
+import { DATOS_PERFIL, MODIFICAR_CREDENCIALES } from '../../redux/actions';
 
 const Perfil = (props) => {
     let navigate = useNavigate();
@@ -66,10 +66,26 @@ const Perfil = (props) => {
             let res = await axios.post(`${baseURL}/usuarios/${props.credenciales.usuario._id}/siguiendo`, body, config);
             if (res.status === 200) {
                 muestraUsuario();
+                props.dispatch({ type: MODIFICAR_CREDENCIALES, payload: res.data.usuario })
             }
         }
         catch (error) {
             console.log(error.response)
+        }
+    }
+
+    const dejaDeSeguirUsuario = async () => {
+        let config = {
+            headers: { Authorization: `Bearer ${props.credenciales.token}` }
+        };
+        try {
+            let res = await axios.delete(`${baseURL}/usuarios/${props.credenciales.usuario._id}/siguiendo/${datosUsuario._id}`, config);
+            if (res.status === 200) {
+                muestraUsuario();
+                props.dispatch({ type: MODIFICAR_CREDENCIALES, payload: res.data.usuario })
+            }
+        } catch (error) {
+            console.log(error)
         }
     }
 
@@ -109,7 +125,10 @@ const Perfil = (props) => {
 
                             <div className="botonesPerfil">
                                 {props.credenciales.usuario._id !== datosUsuario._id
-                                    ? <div className="botonPerfil" onClick={() => sigueUsuario()}> Seguir!</div>
+                                    ?
+                                    props.credenciales.usuario.siguiendo.find(usuario => usuario._id === datosUsuario._id)
+                                        ? <div className="botonPerfil" onClick={() => dejaDeSeguirUsuario()}> Dejar de Seguir</div>
+                                        : <div className="botonPerfil" onClick={() => sigueUsuario()}> Seguir!</div>
                                     : <div className="botonPerfil" onClick={() => navigate('/editar-perfil')}> Editar Perfil</div>
                                 }
                             </div>
@@ -151,7 +170,7 @@ const Perfil = (props) => {
                     <div className='contenidoPerfil'>
                         <div className="datosUsuario">
                             <h1 className='nombreUsuario'>404 Usuario no encontrado</h1>
-                            <img className='imagenUsuario' src='https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg'/>
+                            <img className='imagenUsuario' src='https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' />
                             <div className='flex'>
                                 <div className="camposUsuario">Ciudad:</div>
                             </div>
