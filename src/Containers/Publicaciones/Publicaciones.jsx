@@ -24,6 +24,10 @@ const Publicaciones = (props) => {
     }, []);
 
     useEffect(() => {
+        traerPublicaciones();
+    }, [publicaciones]);
+
+    useEffect(() => {
         if (props.credenciales.token === '') {
             navigate("/");
         }
@@ -31,9 +35,12 @@ const Publicaciones = (props) => {
 
     const traerPublicaciones = async () => {
         try {
-            const respuesta = await axios.get(`${baseURL}/usuarios/${props.credenciales.usuario._id}/publicaciones`, config);
+            const respuesta = await axios.get(`${baseURL}/usuarios/${props.usuario._id}/publicaciones`, config);
             setTimeout(() => {
-                setPublicaciones(respuesta.data.publicaciones.reverse());
+                if (JSON.stringify(respuesta.data.publicaciones.reverse()) !== JSON.stringify(publicaciones)) {
+                    // console.log(JSON.stringify(respuesta.data.publicaciones.reverse()) === JSON.stringify(publicaciones));
+                    setPublicaciones(respuesta.data.publicaciones.reverse());
+                }
             }, 1000);
         } catch (error) {
             console.log(error);
@@ -51,41 +58,57 @@ const Publicaciones = (props) => {
     };
 
     if (publicaciones.length !== 0) {
-        return (
-            <div className='paginaPublicaciones'>
-                <Header />
-                <div className="contenidoPublicaciones">
-                    <Margin />
-                    <div className='cuerpoPublicaciones'>
-                        {
-                            publicaciones.map((publicaciones, index) => {
-                                return (
-                                    <div className="foroPostPublicaciones" key={index}>
-                                        <div className="postCabezaPublicaciones">
-                                            <div className="nombreUsuarioPublicaciones" onClick={() => escogeUsuario(publicaciones[0].usuario.usuarioId)}>
-                                                <img className='imagenUsuarioPublicaciones' src={
-                                                    publicaciones[0].usuario.foto === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : publicaciones[0].usuario.foto
-                                                } />
-                                                <p>{publicaciones[0].usuario.nombre} {publicaciones[0].usuario.apellidos}</p>
+        // console.log(publicaciones[0][0].usuario.usuarioId, props.usuario._id);
+        if (publicaciones[0][0].usuario.usuarioId === props.usuario._id) {
+            return (
+                <div className='paginaPublicaciones'>
+                    <Header />
+                    <div className="contenidoPublicaciones">
+                        <Margin />
+                        <div className='cuerpoPublicaciones'>
+                            {
+                                publicaciones.map((publicaciones, index) => {
+                                    return (
+                                        <div className="foroPostPublicaciones" key={index}>
+                                            <div className="postCabezaPublicaciones">
+                                                <div className="nombreUsuarioPublicaciones" onClick={() => escogeUsuario(publicaciones[0].usuario.usuarioId)}>
+                                                    <img className='imagenUsuarioPublicaciones' src={
+                                                        publicaciones[0].usuario.foto === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : publicaciones[0].usuario.foto
+                                                    } />
+                                                    <p>{publicaciones[0].usuario.nombre} {publicaciones[0].usuario.apellidos}</p>
+                                                </div>
+                                                <div className="fechaPost"><p>Fecha: {moment(publicaciones[0].fecha).fromNow()}</p></div>
                                             </div>
-                                            <div className="fechaPost"><p>Fecha: {moment(publicaciones[0].fecha).fromNow()}</p></div>
+                                            <div className='contenidoPostPublicaciones' onClick={() => escogeHilo(publicaciones[0]._id)}>
+                                                <p className='tituloHiloPublicaciones'>{publicaciones[0].titulo}</p>
+                                                <p className='cuerpoHiloPublicaciones'>{publicaciones[0].cuerpo}</p>
+                                            </div>
+                                            <div className="botonesPostPublicaciones">
+                                                <button className='botonPublicaciones'>Me gusta</button>
+                                            </div>
                                         </div>
-                                        <div className='contenidoPostPublicaciones' onClick={() => escogeHilo(publicaciones[0]._id)}>
-                                            <p className='tituloHiloPublicaciones'>{publicaciones[0].titulo}</p>
-                                            <p className='cuerpoHiloPublicaciones'>{publicaciones[0].cuerpo}</p>
-                                        </div>
-                                        <div className="botonesPostPublicaciones">
-                                            <button className='botonPublicaciones'>Me gusta</button>
-                                        </div>
-                                    </div>
+                                    )
+                                }
                                 )
                             }
-                            )
-                        }
+                        </div>
                     </div>
                 </div>
-            </div>
-        )
+            )
+        } else {
+            traerPublicaciones();
+            return (
+                <div className='paginaHome'>
+                    <Header />
+                    <div id='malo' className="contenidoHome">
+                        <Margin />
+                        <div className='cuerpoHome'>
+                            <div className="espinner"></div>
+                        </div>
+                    </div>
+                </div>
+            )
+        }
     } else {
         return (
             <div className='paginaHome'>
@@ -102,5 +125,6 @@ const Publicaciones = (props) => {
 }
 
 export default connect((state) => ({
-    credenciales: state.credenciales
+    credenciales: state.credenciales,
+    usuario: state.datosPerfil
 }))(Publicaciones);

@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { useHref, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 // axios
 import axios from 'axios';
 import { baseURL } from '../../utiles';
 // Redux
 import { connect } from 'react-redux';
-import { MODIFICAR_CREDENCIALES } from '../../redux/actions';
 
 import './Perfil.css';
 import Margin from '../../Components/Margin/Margin';
 import Header from '../../Components/Header/Header';
+import { DATOS_PERFIL } from '../../redux/actions';
 
 const Perfil = (props) => {
     let navigate = useNavigate();
@@ -84,7 +84,13 @@ const Perfil = (props) => {
                             </div>
                         </div>
                         <div className="datosInteracionesUsuario">
-                            <div className="interacionesUsuario" onClick={() => navigate('/publicaciones')}>
+                            <div 
+                                className="interacionesUsuario"
+                                onClick={async () => {
+                                    await props.dispatch({type: DATOS_PERFIL, payload: datosUsuario._id})
+                                    navigate('/publicaciones')
+                                }}
+                            >
                                 <div className="camposUsuario">Posts:</div>
                                 <div className='datosCamposUsuario'>{datosUsuario.publicaciones ? datosUsuario.publicaciones.length : 0}</div>
                             </div>
