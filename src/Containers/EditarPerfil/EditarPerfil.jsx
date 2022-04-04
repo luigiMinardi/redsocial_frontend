@@ -5,7 +5,7 @@ import axios from 'axios';
 import { baseURL } from '../../utiles';
 // Redux
 import { connect } from 'react-redux';
-import { MODIFICAR_CREDENCIALES } from '../../redux/actions';
+import { DATOS_PERFIL, MODIFICAR_CREDENCIALES } from '../../redux/actions';
 
 import './EditarPerfil.css';
 import Margin from '../../Components/Margin/Margin';
@@ -60,10 +60,11 @@ const EditarPerfil = (props) => {
         try {
             // Actualizamos los datos de Usuario en nuestra base de datos.
             let res = await axios.patch(`${baseURL}/usuarios/${props.credenciales.usuario._id}`, body, config);
-            console.log(res.data)
             if (res) {
                 // Guardamos los datos en Redux.
-                props.dispatch({ type: MODIFICAR_CREDENCIALES, payload: res.data });
+                props.dispatch({ type: MODIFICAR_CREDENCIALES, payload: res.data.usuario });
+                props.dispatch({ type: DATOS_PERFIL, payload: res.data.usuario._id });
+                navigate('/perfil');
             }
         } catch (error) {
             console.log(error)
@@ -98,11 +99,13 @@ const EditarPerfil = (props) => {
                             onChange={(e) => { rellenarDatos(e) }} />
                         <input className='inputEditarPerfil' type="text" name="ciudad" id="ciudad" title="ciudad" placeholder={`Ciudad (opcional)  ${props.credenciales.usuario.ciudad}`} onChange={(e) => { rellenarDatos(e) }} />
                         <input className='inputEditarPerfil' type="url" name="foto" id="foto" title="foto" placeholder={`Foto (opcional, URL de la foto)`} onChange={(e) => { rellenarDatos(e) }} />
-                        <div className="botonEditarPerfil" onClick={() => actualizaUsuario()}>
-                            Actualizar Perfil
-                        </div>
-                        <div className="botonEditarPerfil">
-                            Cambiar la contraseña
+                        <div className='botonesEditarPerfil'>
+                            <div className="botonEditarPerfil" onClick={() => actualizaUsuario()}>
+                                Actualizar Perfil
+                            </div>
+                            <div className="botonEditarPerfil" onClick={() => navigate('/editar-contrasena')}>
+                                Cambiar la contraseña
+                            </div>
                         </div>
                     </div>
                 </div>

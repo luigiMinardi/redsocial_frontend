@@ -20,10 +20,6 @@
     background-color: rgba(196, 196, 196, 1);
 }
 
-.contenedor > :last-child {
-    margin-bottom: 1.5em;
-}
-
 .titulo{
     color: rgba(196, 196, 196, 1);
     font-size: 2em;
@@ -73,6 +69,12 @@
     flex-direction: center;
     align-items: center;
     justify-content: center;
+}
+
+.botonesEditarPerfil {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
 }
 
 .botonEditarPerfil{
