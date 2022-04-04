@@ -42,6 +42,37 @@ const Perfil = (props) => {
             console.log(error)
         }
     }
+
+    const sigueUsuario = async () => {
+        let config = {
+            headers: { Authorization: `Bearer ${props.credenciales.token}` }
+        };
+
+        let body = {
+            siguiendo: {
+                _id: datosUsuario._id,
+                nombre: datosUsuario.nombre,
+                apellidos: datosUsuario.apellidos,
+                foto: datosUsuario.foto
+            },
+            usuario: {
+                _id: props.credenciales.usuario._id,
+                nombre: props.credenciales.usuario.nombre,
+                apellidos: props.credenciales.usuario.apellidos,
+                foto: props.credenciales.usuario.foto
+            },
+        }
+        try {
+            let res = await axios.post(`${baseURL}/usuarios/${props.credenciales.usuario._id}/siguiendo`, body, config);
+            if (res.status === 200) {
+                muestraUsuario();
+            }
+        }
+        catch (error) {
+            console.log(error.response)
+        }
+    }
+
     if (datosUsuario._id !== '') {
         return (
             <div className='paginaPerfil'>
@@ -77,17 +108,17 @@ const Perfil = (props) => {
                             </div>
 
                             <div className="botonesPerfil">
-                                <div className="botonPerfil" onClick={() => navigate('/editar-perfil')}> Editar Perfil</div>
-                                {props.credenciales._id === datosUsuario._id
-                                    ? <div className="botonPerfil"> Seguir!</div>
-                                    : <> </>}
+                                {props.credenciales.usuario._id !== datosUsuario._id
+                                    ? <div className="botonPerfil" onClick={() => sigueUsuario()}> Seguir!</div>
+                                    : <div className="botonPerfil" onClick={() => navigate('/editar-perfil')}> Editar Perfil</div>
+                                }
                             </div>
                         </div>
                         <div className="datosInteracionesUsuario">
-                            <div 
+                            <div
                                 className="interacionesUsuario"
                                 onClick={async () => {
-                                    await props.dispatch({type: DATOS_PERFIL, payload: datosUsuario._id})
+                                    await props.dispatch({ type: DATOS_PERFIL, payload: datosUsuario._id })
                                     navigate('/publicaciones')
                                 }}
                             >
