@@ -88,7 +88,7 @@ const Perfil = (props) => {
                             } />
                             <div className='flex'>
                                 <div className="camposUsuario">Ciudad:&nbsp;</div>
-                                <div>{datosUsuario.ciudad !== '' ? 'Secreto' : datosUsuario.ciudad}</div>
+                                <div>{datosUsuario.ciudad === undefined ? 'Secreto' : datosUsuario.ciudad}</div>
                             </div>
                             <div className='flex'>
                                 <div className="camposUsuario">Edad:&nbsp;</div>
@@ -100,7 +100,7 @@ const Perfil = (props) => {
                             </div>
                             <div className='flex'>
                                 <div className="camposUsuario">Telefono:&nbsp;</div>
-                                <div>{datosUsuario.telefono !== '' ? 'Secreto' : datosUsuario.telefono}</div>
+                                <div>{datosUsuario.telefono === undefined ? 'Secreto' : datosUsuario.telefono}</div>
                             </div>
                             <div className='flex'>
                                 <div className="camposUsuario">Data de nacimiento:&nbsp;</div>
