@@ -59,6 +59,7 @@ const EditarHilo = (props) => {
             console.log(error)
         }
     }
+
     return (
         <div className='paginaEditarHilo'>
             <Header />
