@@ -63,7 +63,7 @@ const Siguiendo = (props) => {
                                             <div className="cardSiguiendo">
                                                 <div className='cardSiguiendoIzq'>
                                                     <img className='imagenSiguiendo' src={
-                                                        usuario.foto === '' ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : usuario.foto
+                                                        usuario.foto === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : usuario.foto
                                                     } />
                                                     <button className='botonPerfil' onClick={() => verPerfil(usuario._id)} >Ver Perfil</button>
                                                 </div>

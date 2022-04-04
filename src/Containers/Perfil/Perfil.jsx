@@ -84,7 +84,7 @@ const Perfil = (props) => {
                             <h1 className='nombreUsuario'>{datosUsuario.nombre} {datosUsuario.apellidos}</h1>
 
                             <img className='imagenUsuario' src={
-                                datosUsuario.foto !== '' ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : datosUsuario.foto
+                                datosUsuario.foto === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : datosUsuario.foto
                             } />
                             <div className='flex'>
                                 <div className="camposUsuario">Ciudad:&nbsp;</div>
@@ -151,9 +151,7 @@ const Perfil = (props) => {
                     <div className='contenidoPerfil'>
                         <div className="datosUsuario">
                             <h1 className='nombreUsuario'>404 Usuario no encontrado</h1>
-                            <img className='imagenUsuario' src={
-                                datosUsuario.foto !== '' ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : datosUsuario.foto
-                            } />
+                            <img className='imagenUsuario' src='https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg'/>
                             <div className='flex'>
                                 <div className="camposUsuario">Ciudad:</div>
                             </div>
