@@ -32,7 +32,7 @@ const Likes = (props) => {
 
     const traerlikes = async () => {
         try {
-            const respuesta = await axios.get(`${baseURL}/usuarios/${props.credenciales.usuario._id}/likes`, config);
+            const respuesta = await axios.get(`${baseURL}/usuarios/${props.perfil._id}/likes`, config);
             console.log(respuesta.data.usuario.likes)
             setTimeout(() => {
                 setlikes(respuesta.data.usuario.likes);
@@ -72,7 +72,7 @@ const Likes = (props) => {
                                                 </div>
                                                 <div className="cardLikesDrc">
                                                     <p className='letras1'>Fecha del Post: {like?.fecha}</p>
-                                                    <button className='botonLikes'onClick={() => escogeHilo(like._id)}>Ver Post</button>
+                                                    <button className='botonLikes' onClick={() => escogeHilo(like._id)}>Ver Post</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -103,5 +103,6 @@ const Likes = (props) => {
 
 export default connect((state) => ({
     credenciales: state.credenciales,
-    datosHilo: state.datosHilo
+    datosHilo: state.datosHilo,
+    perfil: state.datosPerfil
 }))(Likes);
