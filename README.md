@@ -13,7 +13,7 @@
 </div>
 
 ------------------------------------------------------
-Haga clic [aquí](https://github.com/luigiMinardi/redsocial_frontend.git)para ver el repositorio de este proyecto.
+Haga clic [aquí](https://github.com/luigiMinardi/redsocial_frontend.git) para ver el repositorio de este proyecto.
 
 -------------------
 # Resumen general del proyecto:
@@ -41,10 +41,10 @@ La red social contiene las siguientes funciones:
 
 
 ***
-![Pagina de Amigos React](src/img-readme/amigos.jpg)
+![Pagina de Amigos React](./.github/siguiendo.png)
 Pagina de amigos
 ***
-![Rent film React](src/img-readme/mis-publicaciones.jpg)
+![Rent film React](./.github/mis-publicaciones.png)
 Mis publicaciones
 ***
 
@@ -58,17 +58,17 @@ La aplicación tiene las siguientes características:
 
 ***
 
-![Foro](src/img-readme/foro.jpg)
-..La pagina principal de la red donde la gente postean sus mensajes
+![Foro](./.github/foro.png)
+La pagina principal de la red donde la gente postean sus mensajes
 ***
 
-![Pagina de perfil](src/img-readme/mi-perfil.jpg)
-..Tu pagina de perfil 
+![Pagina de perfil](./.github/mi-perfil.png)
+Tu pagina de perfil 
 ***
 
 
-![Pagina de registro](src/img-readme/registrame.jpg)
-..La pagina de registro
+![Pagina de registro](./.github/registrame.jpg)
+La pagina de registro
 ***
 
 
