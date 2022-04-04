@@ -9,7 +9,7 @@ import Header from '../../Components/Header/Header';
 
 const Hilo = (props) => {
     let navigate = useNavigate();
-    const [datosHilo, setDatosHilo] = useState({});
+    const [datosHilo, setDatosHilo] = useState(null);
 
     useEffect(() => {
         muestraHilo();
@@ -59,7 +59,7 @@ const Hilo = (props) => {
         }
     };
 
-    if (Object.entries(datosHilo).length !== 0) {
+    if (datosHilo !== null) {
         return (
             <div className='paginaHilo'>
                 <Header />
@@ -87,7 +87,6 @@ const Hilo = (props) => {
                                             gustaDelHilo(datosHilo._id);
                                         }}>Gustar</div>
                                     }
-
                                 </div>
                             </div>
                         </div>

@@ -15,7 +15,7 @@ const Perfil = (props) => {
     let navigate = useNavigate();
 
     // Hooks.
-    const [datosUsuario, setDatosUsuario] = useState({ _id: '' });
+    const [datosUsuario, setDatosUsuario] = useState(null);
 
     useEffect(() => {
         muestraUsuario();
@@ -89,7 +89,7 @@ const Perfil = (props) => {
         }
     }
 
-    if (datosUsuario._id !== '') {
+    if (datosUsuario !== null) {
         return (
             <div className='paginaPerfil'>
                 <Header />
@@ -188,19 +188,19 @@ const Perfil = (props) => {
                             </div>
                         </div>
                         <div className="datosInteracionesUsuario">
-                            <div className="interacionesUsuario" onClick={() => navigate('/publicaciones')}>
+                            <div className="interacionesUsuario">
                                 <div className="camposUsuario">Posts:</div>
                                 <div className='datosCamposUsuario'>0</div>
                             </div>
-                            <div className="interacionesUsuario" onClick={() => navigate('/siguiendo')}>
+                            <div className="interacionesUsuario">
                                 <div className="camposUsuario">Siguiendo:</div>
                                 <div className='datosCamposUsuario'>0</div>
                             </div>
-                            <div className="interacionesUsuario" onClick={() => navigate('/seguidores')}>
+                            <div className="interacionesUsuario">
                                 <div className="camposUsuario">Seguidores:</div>
                                 <div className='datosCamposUsuario'>0</div>
                             </div>
-                            <div className="interacionesUsuario" onClick={() => navigate('/likes')}>
+                            <div className="interacionesUsuario">
                                 <div className="camposUsuario">Likes:</div>
                                 <div className='datosCamposUsuario'>0</div>
                             </div>
