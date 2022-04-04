@@ -19,10 +19,12 @@ const EditarPerfil = (props) => {
     // Hooks.
     const [datosUsuario, setDatosUsuario] = useState({
         nombre: props.credenciales.usuario.nombre,
-        edad: props.credenciales.usuario.edad,
         apellidos: props.credenciales.usuario.apellidos,
+        edad: props.credenciales.usuario.edad,
+        correo: props.credenciales.usuario.correo,
         telefono: props.credenciales.usuario.telefono,
         ciudad: props.credenciales.usuario.ciudad,
+        foto: props.credenciales.usuario.foto
     })
 
     // Handler (Manejador).
@@ -39,25 +41,29 @@ const EditarPerfil = (props) => {
         };
     })
 
+    useEffect(() => {
+    }, [props.credenciales.usuario])
+
     const actualizaUsuario = async () => {
         let body = {
-            id: props.credenciales.usuario.id,
             nombre: datosUsuario.nombre,
-            edad: datosUsuario.edad,
             apellidos: datosUsuario.apellidos,
+            edad: datosUsuario.edad,
+            correo: datosUsuario.correo,
             telefono: datosUsuario.telefono,
             ciudad: datosUsuario.ciudad,
+            foto: datosUsuario.foto
         }
-        console.log("papayote", body)
         let config = {
             headers: { Authorization: `Bearer ${props.credenciales.token}` }
         };
         try {
             // Actualizamos los datos de Usuario en nuestra base de datos.
-            let res = await axios.put(`${baseURL}usuarios/${props.credenciales.usuario.id}`, body, config);
+            let res = await axios.patch(`${baseURL}/usuarios/${props.credenciales.usuario._id}`, body, config);
+            console.log(res.data)
             if (res) {
                 // Guardamos los datos en Redux.
-                props.dispatch({ type: MODIFICAR_CREDENCIALES, payload: datosUsuario });
+                props.dispatch({ type: MODIFICAR_CREDENCIALES, payload: res.data });
             }
         } catch (error) {
             console.log(error)
@@ -70,25 +76,33 @@ const EditarPerfil = (props) => {
             <div className="contenidoPerfil">
                 <Margin />
                 <div className='cuerpoPerfil'>
-                    <div className="foroPostFoto">
+                    <div className="contenedor">
                         <div className="postCabezaFoto">
-                            <p className='letras'>Foto de Perfil y Contraseña</p>
+                            <p className='titulo'>Edite el Perfil de tu Usuario!</p>
                         </div>
-                        <div className="imagenPerfil"></div>
-                        <div className="botonPostFoto">Cambiar imagen de Perfil</div>
-                        <div className="botonPostFoto">Cambiar la contraseña</div>
-                    </div>
-                    <div className="foroPostPerfil">
-                        <div className="postCabezaPerfil">
-                            <p className='letras'>Actualiza tus datos</p>
-                        </div>
-                        <input className='input' type="text" name="nombre" id="nombre" title="nombre" placeholder={`Nombre:  ${props.credenciales.usuario.nombre}`} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
-                        <input className='input' type="text" name="apellidos" id="apellidos" title="apellidos" placeholder={`Apellidos:  ${props.credenciales.usuario.apellidos}`} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
-                        <input className='input' type="date" name="edad" id="edad" title="edad" placeholder="Fecha de Nacimiento" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
-                        <input className='input' type="text" name="telefono" id="telefono" title="telefono" placeholder={`Telefono (opcional)  ${props.credenciales.usuario.telefono}`} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
-                        <input className='input' type="text" name="ciudad" id="ciudad" title="ciudad" placeholder={`Ciudad (opcional)  ${props.credenciales.usuario.ciudad}`} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
-                        <div className="botonPerfil" onClick={() => actualizaUsuario()}>
+                        <img className="imagenPerfil" src={
+                            datosUsuario.foto === undefined ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : datosUsuario.foto
+                        } />
+                        <input className='inputEditarPerfil' type="text" name="nombre" id="nombre" title="nombre" placeholder={`Nombre:  ${props.credenciales.usuario.nombre}`} onChange={(e) => { rellenarDatos(e) }} />
+                        <input className='inputEditarPerfil' type="text" name="apellidos" id="apellidos" title="apellidos" placeholder={`Apellidos (opcional):  ${props.credenciales.usuario.apellidos}`} onChange={(e) => { rellenarDatos(e) }} />
+                        <input className='inputEditarPerfil' type="date" name="edad" id="edad" title="edad" placeholder="Fecha de Nacimiento" onChange={(e) => { rellenarDatos(e) }} />
+                        <input className='inputEditarPerfil' type="email" name="correo" id="correo" title="correo" placeholder={`Correo Electronico ${props.credenciales.usuario.correo}`} onChange={(e) => { rellenarDatos(e) }} />
+                        <input
+                            className='inputEditarPerfil'
+                            type="tel"
+                            name="telefono"
+                            id="telefono"
+                            title="telefono"
+                            placeholder={`Telefono (opcional)  ${props.credenciales.usuario.telefono}`}
+                            pattern="^(\+?\d{0,2})?[\D]?\(?(\d{2,3})\)?[\D]?(\d{1,5})[\D]?(\d{2,4})[\D]?(\d{2})$"
+                            onChange={(e) => { rellenarDatos(e) }} />
+                        <input className='inputEditarPerfil' type="text" name="ciudad" id="ciudad" title="ciudad" placeholder={`Ciudad (opcional)  ${props.credenciales.usuario.ciudad}`} onChange={(e) => { rellenarDatos(e) }} />
+                        <input className='inputEditarPerfil' type="url" name="foto" id="foto" title="foto" placeholder={`Foto (opcional, URL de la foto)`} onChange={(e) => { rellenarDatos(e) }} />
+                        <div className="botonEditarPerfil" onClick={() => actualizaUsuario()}>
                             Actualizar Perfil
+                        </div>
+                        <div className="botonEditarPerfil">
+                            Cambiar la contraseña
                         </div>
                     </div>
                 </div>
