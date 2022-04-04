@@ -34,24 +34,17 @@ const Siguiendo = (props) => {
         }
     })
 
-    useEffect(() => {
-        console.log(siguiendo);
-    }, [siguiendo]);
-
     const traerUsuariosSiguiendo = async () => {
         try {
-            const respuesta = await axios.get(`${baseURL}/usuarios/${props.credenciales.usuario._id}/siguiendo`, config);
-            console.log(respuesta.data)
-            setTimeout(() => {
-                setSiguiendo(respuesta.data.siguiendo);
-            }, 1000);
+            const respuesta = await axios.get(`${baseURL}/usuarios/${props.perfil._id}/siguiendo`, config);
+            setSiguiendo(respuesta.data.siguiendo);
         } catch (error) {
             console.log(error);
         }
     };
 
     const verPerfil = async (id) => {
-        await props.dispatch({type: DATOS_PERFIL, payload: id});
+        await props.dispatch({ type: DATOS_PERFIL, payload: id });
         navigate('/perfil');
     }
 
@@ -72,14 +65,14 @@ const Siguiendo = (props) => {
                                                     <img className='imagenSiguiendo' src={
                                                         usuario.foto === '' ? 'https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg' : usuario.foto
                                                     } />
-                                                    <button className='botonPerfil' onClick={()=> verPerfil(usuario._id)} >Ver Perfil</button>
+                                                    <button className='botonPerfil' onClick={() => verPerfil(usuario._id)} >Ver Perfil</button>
                                                 </div>
                                                 <div className="cardSiguiendoDrc">
-                                                <p className='letras1'>{usuario.nombre}</p>
-                                                <p className='letras1'>{usuario?.apellidos}</p>
-                                                <p className='letras1'>{usuario?.ciudad}</p>
-                                                <p className='letras1'>{usuario?.fecha}</p>
-                                            </div>
+                                                    <p className='letras1'>{usuario.nombre}</p>
+                                                    <p className='letras1'>{usuario?.apellidos}</p>
+                                                    <p className='letras1'>{usuario?.ciudad}</p>
+                                                    <p className='letras1'>{usuario?.fecha}</p>
+                                                </div>
                                             </div>
 
                                         </div>
@@ -111,5 +104,6 @@ const Siguiendo = (props) => {
 
 
 export default connect((state) => ({
-    credenciales: state.credenciales
+    credenciales: state.credenciales,
+    perfil: state.datosPerfil
 }))(Siguiendo);
