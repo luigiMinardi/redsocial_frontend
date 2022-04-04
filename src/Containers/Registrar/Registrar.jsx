@@ -53,20 +53,16 @@ const Registrar = () => {
             correo: datosUsuario.correo,
             clave: datosUsuario.clave,
         }
-
-        console.log("Esto se llama cuerpo", body);
         //3 send to axios
 
         try {
             let resultado = await axios.post(`${baseURL}/usuarios`, body);
-            console.log(resultado);
 
             setTimeout(() => {
                 navigate("/");
             }, 500);
 
         } catch (error) {
-            console.log(error.response);
             console.log(error, 'error');
         }
     }
