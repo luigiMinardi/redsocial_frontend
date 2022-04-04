@@ -31,6 +31,38 @@ const Home = (props) => {
         }
     };
 
+    const gustaDelHilo = async (hiloId) => {
+        try {
+            const config = {
+                headers: { Authorization: `Bearer ${props.credenciales.token}` }
+            };
+
+            const respuesta = await axios.post(`${baseURL}/usuarios/${props.credenciales.usuario._id}/like/${hiloId}`, null, config);
+
+            if (respuesta.status === 200) {
+                traerHilos();
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const dejarDeGustarDelHilo = async (hiloId) => {
+        try {
+            const config = {
+                headers: { Authorization: `Bearer ${props.credenciales.token}` }
+            };
+
+            const respuesta = await axios.delete(`${baseURL}/usuarios/${props.credenciales.usuario._id}/like/${hiloId}`, null, config);
+
+            if (respuesta.status === 200) {
+                traerHilos();
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     const escogeHilo = async (hiloId) => {
         await props.dispatch({ type: DATOS_HILO, payload: hiloId });
         navigate("/hilo");
@@ -73,7 +105,15 @@ const Home = (props) => {
                                             <p className='cuerpoHiloHome'>{hilo.cuerpo}</p>
                                         </div>
                                         <div className="botonesPostHome">
-                                            <button className='botonHome'>Me gusta</button>
+                                            <div>Likes: {hilo.likes.length}</div>
+                                            {hilo.likes.find(like => like === props.credenciales.usuario._id)
+                                                ? <button className='botonHome' onClick={() => {
+                                                    dejarDeGustarDelHilo(hilo._id);
+                                                }}>Dejar de Gustar</button>
+                                                : props.credenciales.token && <button className='botonHome' onClick={() => {
+                                                    gustaDelHilo(hilo._id);
+                                                }}>Gustar</button>
+                                            }
                                         </div>
                                     </div>
                                 )

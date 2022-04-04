@@ -27,6 +27,38 @@ const Hilo = (props) => {
         }
     }
 
+    const gustaDelHilo = async (hiloId) => {
+        try {
+            const config = {
+                headers: { Authorization: `Bearer ${props.credenciales.token}` }
+            };
+
+            const respuesta = await axios.post(`${baseURL}/usuarios/${props.credenciales.usuario._id}/like/${hiloId}`, null, config);
+
+            if (respuesta.status === 200) {
+                muestraHilo();
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const dejarDeGustarDelHilo = async (hiloId) => {
+        try {
+            const config = {
+                headers: { Authorization: `Bearer ${props.credenciales.token}` }
+            };
+
+            const respuesta = await axios.delete(`${baseURL}/usuarios/${props.credenciales.usuario._id}/like/${hiloId}`, null, config);
+
+            if (respuesta.status === 200) {
+                muestraHilo();
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     if (Object.entries(datosHilo).length !== 0) {
         return (
             <div className='paginaHilo'>
@@ -39,11 +71,24 @@ const Hilo = (props) => {
                             <div className='contenidoPostHilo'>
                                 <p className='tituloHiloHome'>{datosHilo.titulo}</p>
                                 <p className='cuerpoHiloHome'>{datosHilo.cuerpo}</p>
-                                {datosHilo?.usuario.usuarioId === props.credenciales.usuario._id
-                                    && <div className="botonHilo" onClick={() => navigate('/editar-hilo')}>
-                                        Modificar Hilo
-                                    </div>
-                                }
+                                <div className="botonesPostHilo">
+
+                                    {datosHilo?.usuario.usuarioId === props.credenciales.usuario._id
+                                        && <div className="botonHilo" onClick={() => navigate('/editar-hilo')}>
+                                            Modificar Hilo
+                                        </div>
+                                    }
+                                    <div>Likes: {datosHilo.likes.length}</div>
+                                    {datosHilo.likes.find(like => like === props.credenciales.usuario._id)
+                                        ? <div className='botonHilo' onClick={() => {
+                                            dejarDeGustarDelHilo(datosHilo._id);
+                                        }}>Dejar de Gustar</div>
+                                        : props.credenciales.token && <div className='botonHilo' onClick={() => {
+                                            gustaDelHilo(datosHilo._id);
+                                        }}>Gustar</div>
+                                    }
+
+                                </div>
                             </div>
                         </div>
                     </div>

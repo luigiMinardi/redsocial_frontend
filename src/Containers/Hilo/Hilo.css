@@ -66,6 +66,13 @@
     background-color: #555a402d;
 }
 
+.botonesPostHilo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5em;
+}
+
 .botonHilo{
     height: 3em;
     width: 10em;
