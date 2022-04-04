@@ -16,6 +16,7 @@
     align-items: center;
     justify-content: space-between;
     height: 95%;
+    width: 50%;
     border-radius: 2em;
     background-color: rgba(196, 196, 196, 1);
 }
@@ -73,8 +74,8 @@
 
 .botonesEditarPerfil {
     display: flex;
-    justify-content: space-around;
-    width: 100%;
+    justify-content: space-between;
+    width: 90%;
 }
 
 .botonEditarPerfil{
