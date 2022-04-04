@@ -13,6 +13,7 @@ import NuevoPost from './Containers/NuevoPost/NuevoPost';
 import Hilo from './Containers/Hilo/Hilo';
 import EditarHilo from './Containers/EditarHilo/EditarHilo';
 import Likes from './Containers/Likes/Likes';
+import EditarContrasena from './Containers/EditarContrasena/EditarContrasena';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
 
           <Route path="/perfil" element={<Perfil />} />
           <Route path="/editar-perfil" element={<EditarPerfil />} />
+          <Route path="/editar-contrasena" element={<EditarContrasena />} />
 
           <Route path="/nosotros" element={<Nosotros />} />
         </Routes>

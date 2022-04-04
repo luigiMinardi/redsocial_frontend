@@ -1,0 +1,100 @@
+.designContrasena {
+    display: flex;
+    flex-direction: column;
+    background-color: #2B2B31;
+    height: 100vh;
+    
+}
+.contenidoContrasena{
+    display: flex;
+    height: 100%;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 95%;
+    border-radius: 2em;
+    background-color: rgba(196, 196, 196, 1);
+}
+
+.contenedor > :last-child {
+    margin-bottom: 1.5em;
+}
+
+.titulo{
+    color: rgba(196, 196, 196, 1);
+    font-size: 2em;
+    padding-inline: 1rem;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+.inputEditarContrasena{
+    all:unset;
+    text-align: left;
+    border: 2px solid #611B5E;
+    border-bottom: 2px 2px;
+    padding: 0.50em;
+    width: 80%;
+    background-color: #555a402d;
+}
+
+.foroPostFoto {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.postCabezaFoto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #611B5E;
+    height: 3em;
+    width: 100%;
+    border-radius: 2em 2em 0 0;
+}
+
+.imagenContrasena{
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    align-self: center;
+}
+
+.cuerpoContrasena {
+    background-color: #2B2B31;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedorClave {
+    display: flex;
+}
+
+.botonEditarContrasena{
+    height: 3em;
+    border-radius: 2em;
+
+    background-color: #555a402d;
+    color: black;
+    border: 2px solid #611B5E;
+    
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botonEditarContrasena:hover {
+    background-color: rgba(196, 196, 196, 1);
+    font-weight: bold;
+}
