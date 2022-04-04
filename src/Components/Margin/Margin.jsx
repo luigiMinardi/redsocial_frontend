@@ -21,11 +21,11 @@ const Margin = (props) => {
         return (
             <div className='designMargin'>
                 <div className='margin'>
-                    <a className='boton' onClick={() => navigate('/')}>Foro</a>
-                    <a className='boton' onClick={() => navigate('/registrar')}>Registrarse</a>
-                    <a className='boton' onClick={() => navigate('/login')}>Login</a>
-                    <a className='boton' onClick={() => navigate('/nosotros')}>Sobre Nosotros</a>
-                    <a className='boton' onClick={() => logOut()}>Cerrar Session</a>
+                    <div className='boton' onClick={() => navigate('/')}>Foro</div>
+                    <div className='boton' onClick={() => navigate('/registrar')}>Registrarse</div>
+                    <div className='boton' onClick={() => navigate('/login')}>Login</div>
+                    <div className='boton' onClick={() => navigate('/nosotros')}>Sobre Nosotros</div>
+                    <div className='boton' onClick={() => logOut()}>Cerrar Session</div>
                 </div>
             </div>
         )
@@ -33,19 +33,19 @@ const Margin = (props) => {
         return (
             <div className='designMargin'>
                 <div className='margin'>
-                    <a className='boton' onClick={() => navigate('/')}>Foro</a>
-                    <a className='boton' onClick={async () => {
+                    <div className='boton' onClick={() => navigate('/')}>Foro</div>
+                    <div className='boton' onClick={async () => {
                         await props.dispatch({ type: DATOS_PERFIL, payload: props.credenciales.usuario._id })
                         navigate('/publicaciones')
                     }}
-                    >Mis Publicaciones</a>
-                    <a className='boton' onClick={() => navigate('/siguiendo')}>Amigos</a>
-                    <a className='boton' onClick={async () => {
+                    >Mis Publicaciones</div>
+                    <div className='boton' onClick={() => navigate('/siguiendo')}>Amigos</div>
+                    <div className='boton' onClick={async () => {
                         await props.dispatch({ type: DATOS_PERFIL, payload: props.credenciales.usuario._id })
                         navigate('/perfil')
                     }}
-                    >Mi Perfil</a>
-                    <a className='boton' onClick={() => logOut()}>Cerrar Session</a>
+                    >Mi Perfil</div>
+                    <div className='boton' onClick={() => logOut()}>Cerrar Session</div>
                 </div>
             </div >
         )

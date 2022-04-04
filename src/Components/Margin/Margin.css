@@ -1,12 +1,14 @@
 .designMargin {
     background-color: #870B29;
     color: white;
-    border-right: #611B5E solid 10px;
+    border-right: #611B5E solid .3rem;
 
     display: flex;
     align-items: flex-start;
+    justify-content: center;
 
     height: 100%;
+    width: 20%;
 }
 
 .margin {
@@ -20,17 +22,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #611B5E;
-    border-radius: 2em;
-    height: 4em;
-    width: 8em;
+
+    border-radius: 2rem;
+    height: 4rem;
+    width: 12rem;
     cursor: pointer;
+
+    background-color: #611B5E;
     border-color: black;
     border: 2px solid #611B5E;
 }
 
 .boton:hover{
-    background-color: rgba(196, 196, 196, 1);
-    font-weight: bolder;
-    color: black;
+    background-color: #611b5de0;
+    font-weight: bold;
+    transform: scale(1.03);
 }
