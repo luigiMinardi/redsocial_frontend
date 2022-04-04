@@ -29,14 +29,9 @@ const Seguidores = (props) => {
         }
     })
 
-    useEffect(() => {
-        console.log(seguidores);
-    }, [seguidores]);
-
     const traerSeguidores = async () => {
         try {
             const respuesta = await axios.get(`${baseURL}/usuarios/${props.perfil._id}/seguidores`, config);
-            console.log(respuesta.data)
             setSeguidores(respuesta.data.seguidores);
         } catch (error) {
             console.log(error);

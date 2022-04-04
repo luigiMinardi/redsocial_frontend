@@ -26,14 +26,9 @@ const Likes = (props) => {
         }
     })
 
-    useEffect(() => {
-        console.log(likes);
-    }, [likes]);
-
     const traerlikes = async () => {
         try {
             const respuesta = await axios.get(`${baseURL}/usuarios/${props.perfil._id}/likes`, config);
-            console.log(respuesta.data.usuario.likes)
             setTimeout(() => {
                 setlikes(respuesta.data.usuario.likes);
             }, 1000);
@@ -43,7 +38,6 @@ const Likes = (props) => {
     };
 
     const escogeHilo = (hilo) => {
-        console.log(hilo);
         props.dispatch({ type: DATOS_HILO, payload: hilo });
         // Redirigimos a la pagina hilo con navigate al Pulsar sobre un hilo en concreto.
         navigate("/hilo");
