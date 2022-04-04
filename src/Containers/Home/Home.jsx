@@ -35,7 +35,7 @@ const Home = (props) => {
         await props.dispatch({ type: DATOS_HILO, payload: hiloId });
         navigate("/hilo");
     };
-    
+
     const escogeUsuario = async (usuarioId) => {
         await props.dispatch({ type: DATOS_PERFIL, payload: usuarioId });
         navigate("/perfil");
@@ -48,6 +48,13 @@ const Home = (props) => {
                 <div className="contenidoHome">
                     <Margin />
                     <div className='cuerpoHome'>
+                        {props.credenciales.token
+                            && <div className='botonHome backgroundColorHome' onClick={() => {
+                                navigate("/nuevo-post");
+                            }}>
+                                Crear Post
+                            </div>
+                        }
                         {
                             hilos.map((hilo, index) => {
                                 return (

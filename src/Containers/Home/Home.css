@@ -108,9 +108,14 @@
 }
 
 .botonHome:hover {
-    background-color: rgba(196, 196, 196, 1);
+    background-color: rgba(196, 196, 196, 0.493);
     font-weight: bolder;
     cursor: pointer;
+}
+
+.backgroundColorHome {
+    font-weight: bold;
+    background-color: #870B29;
 }
 
 #malo {

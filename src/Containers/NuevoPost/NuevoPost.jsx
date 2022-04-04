@@ -6,53 +6,51 @@ import { baseURL } from '../../utiles';
 import './NuevoPost.css';
 import Margin from '../../Components/Margin/Margin';
 import Header from '../../Components/Header/Header';
+import { connect } from 'react-redux';
 
 
-const NuevoPost = () => {
+const NuevoPost = (props) => {
     let navigate = useNavigate();
     //hooks
-    const [datosUsuario, setDatosUsuario] = useState({
-        titulo: "",
-        cuerpo: "",
-        foto: "",
+    const [datosHilo, setDatosHilo] = useState({
+        titulo: undefined,
+        cuerpo: undefined,
     });
 
-    const [msgError, setMsgError] = useState("");
-    //useEffect
-
-    useEffect(() => {
-        //se ejecuta la primera vez que se ejecuta tan solamente
-    }, []);
-
-    useEffect(() => {
-        //se ejecuta cada vez que se actualiza CUALQUIER HOOK  
-    })
-
-
-    //Handler (manejador)
     const rellenarDatos = (e) => {
-        setDatosUsuario({
-            ...datosUsuario,
+        setDatosHilo({
+            ...datosHilo,
             [e.target.name]: e.target.value
         })
     };
 
-    const crearPost = async (props) => {
+    useEffect(() => {
+        if (props.credenciales.token === '') {
+            navigate('/');
+        };
+    })
+
+    const creaHilo = async () => {
         let body = {
-            titulo: datosUsuario.titulo,
-            cuerpo: datosUsuario.cuerpo,
+            titulo: datosHilo.titulo,
+            cuerpo: datosHilo.cuerpo,
+            fecha: Date.now(),
+            usuario: {
+                usuarioId: props.credenciales.usuario._id,
+                nombre: props.credenciales.usuario.nombre,
+                apellidos: props.credenciales.usuario.apellidos,
+                foto: props.credenciales.usuario.foto,
+            },
         }
+        let config = {
+            headers: { Authorization: `Bearer ${props.credenciales.token}` }
+        };
         try {
-            let resultado = await axios.post(`${baseURL}/hilos`, body);
-            console.log(resultado);
-
-            setTimeout(() => {
-                navigate("/");
-            }, 500);
-
+            // Actualizamos los datos de Usuario en nuestra base de datos.
+            let res = await axios.post(`${baseURL}/hilos`, body, config);
+            navigate('/');
         } catch (error) {
-            console.log(error.response);
-            console.log(error, 'error');
+            console.log(error)
         }
     }
 
@@ -67,8 +65,8 @@ const NuevoPost = () => {
                         <div className="postCabezaNuevoPost"></div>
                         <div className='contenidoPostNuevoPost'>
                             <input className='inputNuevoPost' type="text" name="titulo" id="titulo" title="titulo" placeholder="Titulo del Post" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
-                            <input className='inputNuevoPost' type="cuerpo" name="cuerpo" id="cuerpo" title="cuerpo" placeholder="Descripción del Post" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
-                            <div className="botonNuevoPost"onClick={() => crearPost()}>
+                            <input className='inputNuevoPost' type="text" name="cuerpo" id="cuerpo" title="cuerpo" placeholder="Descripción del Post" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
+                            <div className="botonNuevoPost"onClick={() => creaHilo()}>
                                 Crear Publicación
                             </div>
                         </div>
@@ -79,4 +77,6 @@ const NuevoPost = () => {
     );
 }
 
-export default NuevoPost;
+export default connect((state) => ({
+    credenciales: state.credenciales
+}))(NuevoPost);
